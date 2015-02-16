@@ -1,6 +1,4 @@
 import java.util.ArrayList;
-import java.util.HashMap;
-
 import com.leapmotion.leap.*;
 
 public class LeapListener extends Listener {
