@@ -4,20 +4,21 @@ import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.UnknownHostException;
 
 
 public class EstablishConnection {
+
 	
 	private boolean inService = false;
+	private boolean inRecordService = false;
 
-	Socket socket = null;
-	PrintWriter pw = null;
-	OutputStream outStream = null;
-	BufferedReader reader = null;
+	protected Socket socket;
+	protected PrintWriter pw;
+	protected OutputStream outStream;
+	protected BufferedReader reader;
 	
-	CreateAndShowGui showGUI = null;
-	
-	StringBuilder sb;
+	protected CreateAndShowGui showGUI;
 	
 	public EstablishConnection(CreateAndShowGui showGUI){
 		
@@ -26,50 +27,88 @@ public class EstablishConnection {
 	}
 	
 	
-	void sendTheData(String theData){
+	public boolean makeConnection() {
 		
-		sb = new StringBuilder();
-		
-		String line;
-		try {	
-			
-			socket = new Socket("192.168.0.103", 4014);
-			
+		try {
+			socket = new Socket("192.168.1.100", 4014);
 			outStream = socket.getOutputStream();
-			
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			
 			pw = new PrintWriter(outStream);
 			
-			pw.print(theData);
-			
-			pw.flush();
-		    
-			while ((line = reader.readLine()) != null)
-		        sb.append(line).append("\n");
-			
-		    System.out.println(sb.toString());
-		
-			//sent to raspberry pi 
-			
-		} catch (Exception e) {
-			
+			return true;
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		
-		} finally{
-
-			
-			try {
-				pw.close();
-				outStream.close();
-				socket.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-				
+			return false;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
 		}
 		
+//		System.out.println("Checking the objects for not null :");
+//		System.out.println(socket);
+//		System.out.println(outStream);
+//		System.out.println(reader);
+//		System.out.println(pw);
+		
+	}
+	
+	public boolean closeConnection() {
+		
+		try {
+			pw.close();
+			reader.close();
+			outStream.close();
+			socket.close();
+			
+			return true;
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+	
+	void sendTheData(String theData){
+		
+		if(socket != null && outStream != null && reader != null && pw != null) {
+		
+			String line;
+
+			try {	
+				
+//				System.out.println("Checking the objects for not null inside :");
+//				System.out.println(socket);
+//				System.out.println(outStream);
+//				System.out.println(reader);
+//				System.out.println(pw);
+				
+				//System.out.println("Inside send the data");
+				
+				pw.println(theData);
+				
+				pw.flush();
+				
+				System.out.println("Message Sent");
+				
+				line = reader.readLine();
+			  
+			    System.out.println(line);
+				
+				//sent to raspberry pi 
+				
+			} catch (Exception e) {
+				
+				e.printStackTrace();
+			
+			} 
+		}
+		else
+			System.out.println("Not sending that message");
+		
+		//HZYSEUJW James extender
 	}
 	
 	public boolean isInService() {
@@ -79,6 +118,15 @@ public class EstablishConnection {
 
 	public void setInService(boolean inService) {
 		this.inService = inService;
+	}
+	
+	public boolean isInRecordService() {
+		return inRecordService;
+	}
+
+
+	public void setInRecordService(boolean inRecordService) {
+		this.inRecordService = inRecordService;
 	}
 	
 }

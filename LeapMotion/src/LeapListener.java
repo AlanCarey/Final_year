@@ -4,18 +4,31 @@ import com.leapmotion.leap.*;
 public class LeapListener extends Listener {
 
 	private CreateAndShowGui showGUI = null;
+	
 	private EstablishConnection establishCon = null;
 	
-	//HashMap<String, Integer> frameDataOne = new HashMap<>();
-	
-	private ArrayList<String> recordData = new ArrayList<>();
-	private boolean recordDataFlag = false;
-
 	private boolean systemStatsFlag = true;
+	
 	private boolean leapDataFlag = true;
 	
-	private boolean sendRecording = false;
-
+	private float x;
+	private float y;
+	private float z;
+	
+	private String handType;
+	
+	private float pinch;
+	
+	private String data;
+	
+	private Vector normal;
+	
+	private Vector direction;
+	
+	private Frame frame;
+	
+	protected ArrayList<String> recordedData = new ArrayList<>();
+	
 	public LeapListener(CreateAndShowGui showGUI, EstablishConnection establishCon){
 		
 		this.showGUI = showGUI;
@@ -34,7 +47,7 @@ public class LeapListener extends Listener {
 	public void onConnect(Controller controller){
 		if(isSystemStatsFlag() == true){
 			showGUI.printStatus("Connected to Motion Sensor");
-			System.out.println("Connected to Motion Sensor");
+			//System.out.println("Connected to Motion Sensor");
 		}
 		
 		controller.enableGesture(Gesture.Type.TYPE_SWIPE);
@@ -48,7 +61,7 @@ public class LeapListener extends Listener {
 		
 		if(isSystemStatsFlag() == true){
 			showGUI.printStatus("Motion Sensor Disconnected");
-			System.out.println("Motion Sensor Disconnected");
+			//System.out.println("Motion Sensor Disconnected");
 		}
 
 		
@@ -58,36 +71,33 @@ public class LeapListener extends Listener {
 	
 		if(isSystemStatsFlag() == true){
 			showGUI.printStatus("Exited");
-			System.out.println("Exited");
+			//System.out.println("Exited");
 		}
 	}
 	
 	public void onFrame(Controller controller){
 		
 		/*Frame Data */
-		Frame frame = controller.frame();
-	
-//		if(establishCon.isInService() == true) {
-//			establishCon.sendTheData(data);
-//		}
+		frame = controller.frame();
 		
 		/* Hand Data */
 		for(Hand hand: frame.hands()){
-			String handType = hand.isLeft() ? "Left Hand" : "Right Hand";
 			
-			Vector normal = hand.palmPosition();
-			Vector direction = hand.direction();
+			handType = hand.isLeft() ? "Left Hand" : "Right Hand";
 			
-			float x = normal.getX();
-			float y = normal.getY();
-			float z = normal.getZ();
+			pinch = hand.pinchStrength();
+			pinch = pinch*100;
 			
-			String data = "" + (int)x + ":" + (int)y + ":" + (int)z;
+			//fix this showGUI.printStringData(data);
+						
+			normal = hand.palmPosition();
+			direction = hand.direction();
 			
-			if(isRecordDataFlag() == true){
-				recordData.add(data);
-				//System.out.println(data);
-			}
+			x = normal.getX();
+			y = normal.getY();
+			z = normal.getZ();
+			
+			data = (int)x + ":" + (int)y + ":" + (int)z + ":" + (int)pinch;
 			
 			if(isLeapDataFlag() == true){
 				
@@ -108,17 +118,12 @@ public class LeapListener extends Listener {
 				showGUI.printRoll("" + Math.toDegrees(normal.roll()));
 			}
 			
-
-			
-			if(establishCon.isInService() == true && isSendRecording() == false && isRecordDataFlag() == false) {
+			if(establishCon.isInService() == true && establishCon.isInRecordService() == false) {
 				establishCon.sendTheData(data);
 			}
-			else if(isSendRecording() == true){
-				
-				for(String dataString : recordData){
-					establishCon.sendTheData(dataString);
-				}
-				setSendRecording(false);
+			if(establishCon.isInService() == false && establishCon.isInRecordService() == true) {
+				System.out.println("In here");
+				recordedData.add(data);
 			}
 		}
 
@@ -230,6 +235,15 @@ public class LeapListener extends Listener {
 			
 	}
 	
+	public void sendRecordedData() {
+		
+		for(String arrayData: recordedData) {
+			
+			//establishCon.sendTheData(arrayData);
+			System.out.println(arrayData);
+		}
+	}
+	
 	public boolean isSystemStatsFlag() {
 		return systemStatsFlag;
 	}
@@ -244,22 +258,5 @@ public class LeapListener extends Listener {
 
 	public void setLeapDataFlag(boolean leapDataFlag) {
 		this.leapDataFlag = leapDataFlag;
-	}
-	
-	public boolean isRecordDataFlag() {
-		return recordDataFlag;
-	}
-
-	public void setRecordDataFlag(boolean recordDataFlag) {
-		this.recordDataFlag = recordDataFlag;
-	}
-	
-	public boolean isSendRecording() {
-		return sendRecording;
-	}
-
-	public void setSendRecording(boolean sendRecording) {
-		this.sendRecording = sendRecording;
 	}	
-	
 }

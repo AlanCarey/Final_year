@@ -125,16 +125,24 @@ public class LeapController {
 				
 				if(listener.isSystemStatsFlag() == true){
 					showGUI.printStatus("Opening Connection ... ");	
-					showGUI.printStatus("OK");
 				}
 				
-				establishCon.setInService(true);
-				showGUI.jButtSendData.setEnabled(false);
-				showGUI.jButtCloseData.setEnabled(true);
-				
-				
-				
-				showGUI.lblLED2.setForeground(Color.GREEN);
+				if(establishCon.makeConnection() == true) {
+					
+					establishCon.setInService(true);
+					showGUI.jButtSendData.setEnabled(false);
+					showGUI.jButtCloseData.setEnabled(true);
+					showGUI.lblLED2.setForeground(Color.GREEN);
+					
+					if(listener.isSystemStatsFlag() == true){
+						showGUI.printStatus("OK");
+					}
+				}
+				else {
+					if(listener.isSystemStatsFlag() == true){
+						showGUI.printStatus("Failed to make the connection");
+					}
+				}
 				
 			}
 		});
@@ -152,16 +160,29 @@ public class LeapController {
 				
 				if(listener.isSystemStatsFlag() == true){
 					showGUI.printStatus("Closing Connection ... ");
-					showGUI.printStatus("Ok");
 				}
-				establishCon.setInService(false);
-				showGUI.jButtSendData.setEnabled(true);
-				showGUI.jButtCloseData.setEnabled(false);
 				
-				showGUI.lblLED2.setForeground(Color.RED);
-				
-				
-				
+				if(establishCon.closeConnection() == true) {
+					
+					establishCon.setInService(false);
+					showGUI.jButtSendData.setEnabled(true);
+					showGUI.jButtCloseData.setEnabled(false);	
+					
+					
+					showGUI.lblLED2.setForeground(Color.RED);
+					
+					if(listener.isSystemStatsFlag() == true){
+						showGUI.printStatus("Ok");
+					}
+				}
+				else { 
+					
+					if(listener.isSystemStatsFlag() == true){
+						showGUI.printStatus("Failed to close the connection");
+					}
+					
+				}
+								
 			}
 		});
 		
@@ -253,9 +274,12 @@ public class LeapController {
 				
 				showGUI.jButtStopRecording.setEnabled(true);
 				showGUI.jButtStartRecording.setEnabled(false);
-				showGUI.printStatus("Recording ... ");
 				
-				listener.setRecordDataFlag(true);	
+				establishCon.setInService(false);
+				establishCon.setInRecordService(true);
+				
+				showGUI.printStatus("Recording ... ");
+					
 			}
 		});
 		
@@ -273,8 +297,10 @@ public class LeapController {
 				showGUI.jButtStopRecording.setEnabled(false);
 				showGUI.jButtStartRecording.setEnabled(true);			
 				
+				establishCon.setInRecordService(false);
+				establishCon.setInService(true);
 				showGUI.printStatus("Recording Stopped");
-				listener.setRecordDataFlag(false);
+				
 				showGUI.jButtPlayRecord.setEnabled(true);
 			}
 		});
@@ -290,7 +316,9 @@ public class LeapController {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				listener.setSendRecording(true);
+			
+				listener.sendRecordedData();
+				
 			}
 		});
 	}
