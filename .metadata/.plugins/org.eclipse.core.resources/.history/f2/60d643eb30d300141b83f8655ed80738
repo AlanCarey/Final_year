@@ -72,7 +72,7 @@ public class CreateAndShowGui{
 		videoPanel.setBorder(BorderFactory.createTitledBorder("Live Video Stream"));
 	
 		try {
-			myPicture = ImageIO.read(new File("C:/Users/g00269534/Desktop/GitHub/Final_year/yes.JPG"));
+			myPicture = ImageIO.read(new File("C:/Users/Alan/Documents/FinalYearGitHubNew/Final_year/yes.JPG"));
 		} catch (IOException e) {
 
 			e.printStackTrace();
@@ -99,18 +99,14 @@ public class CreateAndShowGui{
 		jButtPlayRecord = new JButton("Play Record");
 		
 		jButtResetArm = new JButton("Reset Arm");
-		jButtPowerOffArm = new JButton("Power Off Arm");
+		jButtPowerOffArm = new JButton("Power Off Arm, "wrap");
 		jButtStartSystemStats = new JButton("System Stats On");
 		jButtStopSystemStats = new JButton("System Stats Off");
 		jButtStartLeapData = new JButton("Leap Data On");
 		jButtStopLeapData = new JButton("Leap Data Off");
 		
 		controlPanel.add(jButtActivate);
-		controlPanel.add(jButtDeactivate);
-		controlPanel.add(jButtStartSystemStats);
-		controlPanel.add(jButtStopSystemStats);
-		controlPanel.add(jButtStartLeapData);
-		controlPanel.add(jButtStopLeapData, "wrap");
+		controlPanel.add(jButtDeactivate, "wrap");
 		controlPanel.add(jButtSendData);
 		controlPanel.add(jButtCloseData);
 		controlPanel.add(jButtStartRecording);
@@ -118,6 +114,10 @@ public class CreateAndShowGui{
 		controlPanel.add(jButtPlayRecord);
 		controlPanel.add(jButtResetArm);
 		controlPanel.add(jButtPowerOffArm);
+		controlPanel.add(jButtStartSystemStats);
+		controlPanel.add(jButtStopSystemStats);
+		controlPanel.add(jButtStartLeapData);
+		controlPanel.add(jButtStopLeapData);
 		
 		return controlPanel;
 	}
