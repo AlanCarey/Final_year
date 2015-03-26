@@ -125,122 +125,27 @@ public class LeapListener extends Listener {
 				System.out.println("In here");
 				recordedData.add(data);
 			}
-		}
-
-		/* Finger Data */
-//		for(Finger finger: frame.fingers() ){
-//			
-//			System.out.println("Finger Type: " +finger.type()
-//										+ " Finger ID: " + finger.id()
-//										+ " Finger Length" + finger.length()
-//										+ " Finger Width" + finger.width());
-//		
-//			/* Bone Data */
-//			for (Bone.Type boneType: Bone.Type.values()){
-//				
-//				Bone bone = finger.bone(boneType);
-//				System.out.println("Bone Type: " + bone.type()
-//									+ " Start: " + bone.prevJoint()
-//									+ " End: " + bone.nextJoint()
-//									+ " Direction: " + bone.direction() );
-//				
-//			}
-//			
-//		}
+		}	
+	}
+	
+	public void sendPowerOffSignal() {
 		
+		establishCon.sendTheData("0");
 		
-		/* Tool Data (Doesn't seem to Detect the tools) */
-//		for(Tool tool: frame.tools()){
-//			
-//			System.out.println("Tool Id: " + tool.id()
-//								+ " Tip Position: " + tool.tipPosition()
-//								+ " Direction: " + tool.direction()
-//								+ " Width: " + tool.width()
-//								+ " Touch Distance: " + tool.touchDistance());
-//			
-//		}
+	}
+	
+	public void sendResetSignal() {
 		
-		/* Gesture Data */
-//		GestureList gestures = frame.gestures();
-//		for(int i = 0; i < gestures.count(); i++){
-//			
-//			Gesture gesture = gestures.get(i);
-//			
-//			switch(gesture.type()){
-//			
-//				case TYPE_CIRCLE:
-//					CircleGesture circle = new CircleGesture(gesture);
-//					
-//					String clockwise;
-//					
-//					if(circle.pointable().direction().angleTo(circle.normal()) <= Math.PI/4){
-//						clockwise = "Clockwise";
-//					}else{
-//						clockwise = "Anti-clockwise";
-//					}
-//					
-//					double sweptAngle = 0;
-//					if(circle.state() != State.STATE_START){
-//						
-//						CircleGesture previous = new CircleGesture(controller.frame(1).gesture(circle.id()));
-//						sweptAngle = (circle.progress() - previous.progress()) * 2 * Math.PI;
-//						
-//					}
-//					
-//					System.out.println("Circle ID: " + circle.id()
-//											+ " Circle State: " + circle.state()
-//											+ " Progress: " + circle.progress()
-//											+ " Radius : " + circle.radius()
-//											+ " SweptAngle: " + Math.toDegrees(sweptAngle)
-//											+ " " + clockwise);
-//					
-//					break;
-//					
-//				case TYPE_SWIPE:
-//					SwipeGesture swipe = new SwipeGesture(gesture);
-//					System.out.println("Swipe ID: " + swipe.id()
-//										 + " State: " + swipe.state()
-//										 + " Swipe Position: " + swipe.position()
-//										 + " Direction: " + swipe.direction()
-//										 + " Speed: " + swipe.speed());
-//						
-//					break;
-//					
-//				case TYPE_SCREEN_TAP:
-//					ScreenTapGesture screenTap = new ScreenTapGesture(gesture);
-//					System.out.println("ScreenTap ID: " + screenTap.id()
-//										+ " State: " + screenTap.state()
-//										+ " Position: " + screenTap.position()
-//										+ " Direction: " + screenTap.direction());
-//					
-//					break;
-//					
-//				case TYPE_KEY_TAP:
-//					KeyTapGesture keyTap = new KeyTapGesture(gesture);
-//					System.out.println(" KeyTap ID: " + keyTap.id()
-//										+ " State: " + keyTap.state()
-//										+ " Postion: " + keyTap.position()
-//										+ " Direction: " + keyTap.direction());
-//					
-//				default: 
-//					System.out.println("No Gesture Recognised");
-//					
-//					break;
-//			
-//			}
-//			
-//			
-//			
-//		}
-			
+		establishCon.sendTheData("1");
+		
 	}
 	
 	public void sendRecordedData() {
 		
 		for(String arrayData: recordedData) {
 			
-			//establishCon.sendTheData(arrayData);
-			System.out.println(arrayData);
+			establishCon.sendTheData(arrayData);
+			//System.out.println(arrayData);
 		}
 	}
 	

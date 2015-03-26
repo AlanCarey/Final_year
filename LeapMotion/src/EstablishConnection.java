@@ -6,10 +6,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
-
 public class EstablishConnection {
 
-	
 	private boolean inService = false;
 	private boolean inRecordService = false;
 
@@ -25,8 +23,7 @@ public class EstablishConnection {
 		this.showGUI = showGUI;
 		
 	}
-	
-	
+		
 	public boolean makeConnection() {
 		
 		try {
@@ -44,14 +41,7 @@ public class EstablishConnection {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return false;
-		}
-		
-//		System.out.println("Checking the objects for not null :");
-//		System.out.println(socket);
-//		System.out.println(outStream);
-//		System.out.println(reader);
-//		System.out.println(pw);
-		
+		}		
 	}
 	
 	public boolean closeConnection() {
@@ -68,7 +58,6 @@ public class EstablishConnection {
 			e.printStackTrace();
 			return false;
 		}
-
 	}
 	
 	void sendTheData(String theData){
@@ -78,14 +67,6 @@ public class EstablishConnection {
 			String line;
 
 			try {	
-				
-//				System.out.println("Checking the objects for not null inside :");
-//				System.out.println(socket);
-//				System.out.println(outStream);
-//				System.out.println(reader);
-//				System.out.println(pw);
-				
-				//System.out.println("Inside send the data");
 				
 				pw.println(theData);
 				
@@ -115,7 +96,6 @@ public class EstablishConnection {
 		return inService;
 	}
 
-
 	public void setInService(boolean inService) {
 		this.inService = inService;
 	}
@@ -127,6 +107,5 @@ public class EstablishConnection {
 
 	public void setInRecordService(boolean inRecordService) {
 		this.inRecordService = inRecordService;
-	}
-	
+	}	
 }

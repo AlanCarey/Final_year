@@ -24,6 +24,7 @@ public class LeapController {
 		frame.setSize(1390, 600);
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		
+		frame.add(showGUI.leapControlPanelNorth(), BorderLayout.NORTH);
 		frame.add(showGUI.leapDataPanelWest(), BorderLayout.WEST);
 		frame.add(showGUI.leapStatusPanelEast(), BorderLayout.EAST);
 		frame.add(showGUI.leapControlPanelSouth(), BorderLayout.SOUTH);
@@ -44,6 +45,9 @@ public class LeapController {
 		showGUI.jButtStartLeapData.setEnabled(false);
 		showGUI.jButtPlayRecord.setEnabled(false);
 		showGUI.jButtStopLeapData.setEnabled(true);
+		
+		showGUI.jButtStopArm.setEnabled(false);
+		showGUI.jButtResetArm.setEnabled(false);
 		
 		establishCon = new EstablishConnection(showGUI);
 		
@@ -68,9 +72,10 @@ public class LeapController {
 				
 				controller.addListener(listener);
 				showGUI.jButtActivate.setEnabled(false);
+				
 				showGUI.jButtSendData.setEnabled(true);
 				showGUI.jButtDeactivate.setEnabled(true);
-				showGUI.jButtStartRecording.setEnabled(true);
+				//showGUI.jButtStartRecording.setEnabled(true);
 				
 				if(listener.isSystemStatsFlag() == true){
 					showGUI.printStatus("Leap Activated");
@@ -97,6 +102,8 @@ public class LeapController {
 				showGUI.jButtDeactivate.setEnabled(false);
 				showGUI.jButtStartRecording.setEnabled(false);
 				showGUI.jButtStopRecording.setEnabled(false);
+				showGUI.jButtResetArm.setEnabled(false);
+				showGUI.jButtStopArm.setEnabled(false);
 				showGUI.jButtActivate.setEnabled(true);
 			
 				if(listener.isSystemStatsFlag() == true){
@@ -130,8 +137,12 @@ public class LeapController {
 				if(establishCon.makeConnection() == true) {
 					
 					establishCon.setInService(true);
+					
 					showGUI.jButtSendData.setEnabled(false);
 					showGUI.jButtCloseData.setEnabled(true);
+					showGUI.jButtStartRecording.setEnabled(true);
+					showGUI.jButtStopArm.setEnabled(true);
+					
 					showGUI.lblLED2.setForeground(Color.GREEN);
 					
 					if(listener.isSystemStatsFlag() == true){
@@ -165,9 +176,14 @@ public class LeapController {
 				if(establishCon.closeConnection() == true) {
 					
 					establishCon.setInService(false);
+					
 					showGUI.jButtSendData.setEnabled(true);
 					showGUI.jButtCloseData.setEnabled(false);	
-					
+					showGUI.jButtStartRecording.setEnabled(false);
+					showGUI.jButtStopArm.setEnabled(false);
+					showGUI.jButtPlayRecord.setEnabled(false);
+					showGUI.jButtResetArm.setEnabled(false);
+					showGUI.jButtStopArm.setEnabled(false);
 					
 					showGUI.lblLED2.setForeground(Color.RED);
 					
@@ -275,11 +291,14 @@ public class LeapController {
 				showGUI.jButtStopRecording.setEnabled(true);
 				showGUI.jButtStartRecording.setEnabled(false);
 				
+				listener.recordedData.clear();
+				
 				establishCon.setInService(false);
 				establishCon.setInRecordService(true);
 				
-				showGUI.printStatus("Recording ... ");
-					
+				if(listener.isSystemStatsFlag() == true){
+					showGUI.printStatus("Recording ... ");
+				}	
 			}
 		});
 		
@@ -299,8 +318,10 @@ public class LeapController {
 				
 				establishCon.setInRecordService(false);
 				establishCon.setInService(true);
-				showGUI.printStatus("Recording Stopped");
 				
+				if(listener.isSystemStatsFlag() == true){
+					showGUI.printStatus("Recording Stopped");
+				}
 				showGUI.jButtPlayRecord.setEnabled(true);
 			}
 		});
@@ -317,8 +338,44 @@ public class LeapController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-				listener.sendRecordedData();
+					listener.sendRecordedData();
+					establishCon.setInService(true);
+					establishCon.setInRecordService(false);
+			}
+		});
+		
+		/**********************************************************************************************************************
+		 * 
+		 * JButtResetArm ActionListener
+		 * 
+		 **********************************************************************************************************************/
+		
+		showGUI.jButtResetArm.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
 				
+				//send the reset signal to the pi
+				listener.sendResetSignal();
+				showGUI.jButtStopArm.setEnabled(true);
+			}
+		});
+		
+		/**********************************************************************************************************************
+		 * 
+		 * JButtStopArm ActionListener
+		 * 
+		 **********************************************************************************************************************/
+		
+		showGUI.jButtStopArm.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//send the stop signal to the arm
+				listener.sendPowerOffSignal();
+				showGUI.jButtStopArm.setEnabled(false);
+				showGUI.jButtResetArm.setEnabled(true);
 			}
 		});
 	}

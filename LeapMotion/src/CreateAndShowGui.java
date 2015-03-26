@@ -49,6 +49,9 @@ public class CreateAndShowGui{
 	protected JButton jButtStopLeapData;
 	protected JButton jButtPlayRecord;
 	
+	protected JButton jButtResetArm;
+	protected JButton jButtStopArm;
+	
 	protected JLabel lblLED1;
 	protected JLabel lblLED2;
 	
@@ -80,36 +83,50 @@ public class CreateAndShowGui{
 		return videoPanel;
 	}
 	
-    public Component leapControlPanelSouth(){
+	public Component leapControlPanelNorth(){
 		
 		JPanel controlPanel = new JPanel(new MigLayout());
-		controlPanel.setBorder(BorderFactory.createTitledBorder("System Control buttons"));
+		controlPanel.setBorder(BorderFactory.createTitledBorder("System Control Buttons"));
 		jButtActivate = new JButton("Leap On");
 		jButtDeactivate = new JButton("Leap Off");
-		
-		jButtSendData = new JButton("Open Connection");
-		jButtCloseData = new JButton("Close Connection");		
-		
-		jButtStartRecording = new JButton("Start Recording");
-		jButtStopRecording = new JButton("Stop Recording");
-		jButtPlayRecord = new JButton("Play Record");
-		
+	
 		jButtStartSystemStats = new JButton("System Stats On");
 		jButtStopSystemStats = new JButton("System Stats Off");
 		jButtStartLeapData = new JButton("Leap Data On");
 		jButtStopLeapData = new JButton("Leap Data Off");
 		
+		jButtSendData = new JButton("Open Connection");
+		jButtCloseData = new JButton("Close Connection");		
+				
 		controlPanel.add(jButtActivate);
 		controlPanel.add(jButtDeactivate);
 		controlPanel.add(jButtSendData);
 		controlPanel.add(jButtCloseData);
-		controlPanel.add(jButtStartRecording);
-		controlPanel.add(jButtStopRecording);
-		controlPanel.add(jButtPlayRecord);
 		controlPanel.add(jButtStartSystemStats);
 		controlPanel.add(jButtStopSystemStats);
 		controlPanel.add(jButtStartLeapData);
 		controlPanel.add(jButtStopLeapData);
+		
+		return controlPanel;
+	}
+	
+    public Component leapControlPanelSouth(){
+		
+		JPanel controlPanel = new JPanel(new MigLayout());
+		controlPanel.setBorder(BorderFactory.createTitledBorder("Robotic Arm Control Buttons"));
+				
+		jButtStartRecording = new JButton("Start Recording");
+		jButtStopRecording = new JButton("Stop Recording");
+		jButtPlayRecord = new JButton("Play Record");
+		jButtResetArm = new JButton("Reset Arm");
+		jButtStopArm = new JButton("Stop Arm");
+		
+		controlPanel.add(jButtStartRecording);
+		controlPanel.add(jButtStopRecording);
+		controlPanel.add(jButtPlayRecord);
+		
+		controlPanel.add(jButtResetArm);
+		controlPanel.add(jButtStopArm);
 		
 		return controlPanel;
 	}
