@@ -87,6 +87,7 @@ not correct please set the HOME environment variable and restart Eclipse. Otherw
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 <<<<<<< HEAD
+<<<<<<< HEAD
 !SESSION 2015-03-25 08:22:11.089 -----------------------------------------------
 =======
 !SESSION 2015-03-25 19:39:33.481 -----------------------------------------------
@@ -491,3 +492,5 @@ java.lang.IllegalStateException: BundleContext is no longer valid
 	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
 	at java.lang.Thread.run(Unknown Source)
+=======
+>>>>>>> parent of b98ccbc... Changes to GUI
