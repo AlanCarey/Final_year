@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Paint;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -49,6 +50,9 @@ public class CreateAndShowGui{
 	protected JButton jButtStopLeapData;
 	protected JButton jButtPlayRecord;
 	
+	protected JButton jButtResetArm;
+	protected JButton jButtPowerOffArm;
+	
 	protected JLabel lblLED1;
 	protected JLabel lblLED2;
 	
@@ -94,6 +98,8 @@ public class CreateAndShowGui{
 		jButtStopRecording = new JButton("Stop Recording");
 		jButtPlayRecord = new JButton("Play Record");
 		
+		jButtResetArm = new JButton("Reset Arm");
+		jButtPowerOffArm = new JButton("Power Off Arm");
 		jButtStartSystemStats = new JButton("System Stats On");
 		jButtStopSystemStats = new JButton("System Stats Off");
 		jButtStartLeapData = new JButton("Leap Data On");
@@ -101,15 +107,17 @@ public class CreateAndShowGui{
 		
 		controlPanel.add(jButtActivate);
 		controlPanel.add(jButtDeactivate);
+		controlPanel.add(jButtStartSystemStats);
+		controlPanel.add(jButtStopSystemStats);
+		controlPanel.add(jButtStartLeapData);
+		controlPanel.add(jButtStopLeapData, "wrap");
 		controlPanel.add(jButtSendData);
 		controlPanel.add(jButtCloseData);
 		controlPanel.add(jButtStartRecording);
 		controlPanel.add(jButtStopRecording);
 		controlPanel.add(jButtPlayRecord);
-		controlPanel.add(jButtStartSystemStats);
-		controlPanel.add(jButtStopSystemStats);
-		controlPanel.add(jButtStartLeapData);
-		controlPanel.add(jButtStopLeapData);
+		controlPanel.add(jButtResetArm);
+		controlPanel.add(jButtPowerOffArm);
 		
 		return controlPanel;
 	}
