@@ -68,7 +68,7 @@ public class CreateAndShowGui{
 		videoPanel.setBorder(BorderFactory.createTitledBorder("Live Video Stream"));
 	
 		try {
-			myPicture = ImageIO.read(new File("C:/Users/g00269534/Desktop/GitHub/Final_year/yes.JPG"));
+			myPicture = ImageIO.read(new File("C:/Users/Alan/Documents/FinalYearGitHubNew/Final_year/yes.JPG"));
 		} catch (IOException e) {
 
 			e.printStackTrace();
