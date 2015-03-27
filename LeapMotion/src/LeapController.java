@@ -81,7 +81,7 @@ public class LeapController {
 					showGUI.printStatus("Leap Activated");
 				}
 				showGUI.lblLED1.setForeground(Color.GREEN);
-			
+				
 			}
 		}); 
 		
@@ -142,6 +142,8 @@ public class LeapController {
 					showGUI.jButtCloseData.setEnabled(true);
 					showGUI.jButtStartRecording.setEnabled(true);
 					showGUI.jButtStopArm.setEnabled(true);
+					showGUI.jButtResetArm.setEnabled(true);
+					
 					
 					showGUI.lblLED2.setForeground(Color.GREEN);
 					
@@ -338,9 +340,14 @@ public class LeapController {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			
-					listener.sendRecordedData();
-					establishCon.setInService(true);
-					establishCon.setInRecordService(false);
+				if(listener.isSystemStatsFlag() == true) {
+					
+					showGUI.printStatus("Playing ...");
+					
+				}
+				listener.sendRecordedData();
+				establishCon.setInService(true);
+				establishCon.setInRecordService(false);
 			}
 		});
 		
@@ -358,6 +365,14 @@ public class LeapController {
 				//send the reset signal to the pi
 				listener.sendResetSignal();
 				showGUI.jButtStopArm.setEnabled(true);
+				establishCon.setInService(true);
+				
+				if(listener.isSystemStatsFlag() == true) {
+					
+					showGUI.printStatus("Arm In Default Position");
+					
+				}
+				
 			}
 		});
 		
@@ -376,6 +391,14 @@ public class LeapController {
 				listener.sendPowerOffSignal();
 				showGUI.jButtStopArm.setEnabled(false);
 				showGUI.jButtResetArm.setEnabled(true);
+				
+				establishCon.setInService(false);
+				
+				if(listener.isSystemStatsFlag() == true) {
+					
+					showGUI.printStatus("Arm Powered Off");
+					
+				}
 			}
 		});
 	}

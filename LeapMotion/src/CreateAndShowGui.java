@@ -1,3 +1,4 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -58,6 +59,37 @@ public class CreateAndShowGui{
 	protected JLabel lblLED3;
 	protected JLabel lblLED4;
 	
+	/*
+	 * dataBase varibles
+	 */
+	
+	protected JPanel login;
+	protected JTextField jTextFieldUserName;
+	protected JTextField jTextFieldPassword;
+	protected JButton jButtLogin;
+	
+	/*
+	 * 
+	 */
+	
+	protected JPanel currentUserData;	
+	protected JTextField jTextFieldCurUserName = new JTextField(20);
+	protected JTextField jTextFieldCurLoginTime;
+	protected JTextField jTextFieldCurlogoutTime;
+	protected JTextField jTextFieldCurPreferredhand;	
+	protected JTextArea jTextAreaCurNotes;
+	protected JButton jButtCurSignOut;
+	protected JButton jButtCurUpdate;
+
+	/*
+	 * 
+	 */
+	
+	protected JPanel newUserData;
+	protected JTextField jTextFieldNewPreferredhand;
+	protected JTextArea jTextAreaNewNotes;
+	protected JButton jButtNewUpdate;
+	
 	BufferedImage myPicture = null;;
 	
 	public CreateAndShowGui(){
@@ -67,20 +99,126 @@ public class CreateAndShowGui{
 
 	public Component liveVideoPanelCenter(){
 		
-		JPanel videoPanel = new JPanel(new MigLayout());
-		videoPanel.setBorder(BorderFactory.createTitledBorder("Live Video Stream"));
-	
-		try {
-			myPicture = ImageIO.read(new File("C:/Users/Alan/Documents/FinalYearGitHubNew/Final_year/yes.JPG"));
-		} catch (IOException e) {
-
-			e.printStackTrace();
-		}
-
-		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-		videoPanel.add(picLabel);
+//		JPanel videoPanel = new JPanel(new MigLayout());
+//		videoPanel.setBorder(BorderFactory.createTitledBorder("Live Video Stream"));
+//	
+//		try {
+//			myPicture = ImageIO.read(new File("C:/Users/Alan/Documents/FinalYearGitHubNew/Final_year/yes.JPG"));
+//		} catch (IOException e) {
+//
+//			e.printStackTrace();
+//		}
+//
+//		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
+//		videoPanel.add(picLabel);
+//		
+//		return videoPanel;
 		
-		return videoPanel;
+		JPanel dataBasePanel = new JPanel(new BorderLayout());
+		dataBasePanel.setBorder(BorderFactory.createTitledBorder("DataBase"));
+		
+		
+		
+		login = new JPanel(new MigLayout());
+		login.setBorder(BorderFactory.createTitledBorder("Login"));
+		
+		JLabel lblUserName = new JLabel("Username");
+		jTextFieldUserName = new JTextField(20);
+		
+		JLabel lblPassword = new JLabel("Password");
+		jTextFieldPassword = new JTextField(20);
+		
+		jButtLogin = new JButton("Login");
+		
+		login.add(lblUserName);
+		login.add(jTextFieldUserName, "wrap");
+		login.add(lblPassword);
+		login.add(jTextFieldPassword);
+		login.add(jButtLogin);
+		
+		/*
+		 * 
+		 */
+		
+		currentUserData = new JPanel(new MigLayout());
+		currentUserData.setBorder(BorderFactory.createTitledBorder("Current User Data"));
+		
+		JLabel lblCurUserName = new JLabel("Username");
+		jTextFieldCurUserName = new JTextField(20);
+		
+		JLabel lblCurLoginTime = new JLabel("Login Time");
+		jTextFieldCurLoginTime = new JTextField(20);
+		
+		JLabel lblCurLogoutTime = new JLabel("Logout Time");
+		jTextFieldCurlogoutTime = new JTextField(20);
+		
+		JLabel lblCurPreferredHand = new JLabel("Preferred Hand");
+		jTextFieldCurPreferredhand = new JTextField(20);
+		
+		JLabel lblCurNotes = new JLabel("Notes");
+		jTextAreaCurNotes = new JTextArea(10,10);
+		JScrollPane jScrollPaneCurNotes = new JScrollPane(jTextAreaCurNotes);
+		
+		jScrollPaneCurNotes.setPreferredSize(new Dimension(150, 200));
+		jTextAreaCurNotes.setWrapStyleWord(true);
+		jTextAreaCurNotes.setLineWrap(true);
+		
+		jButtCurSignOut = new JButton("Sign Out");
+		jButtCurUpdate = new JButton("Update Info?");
+		
+		currentUserData.add(lblCurUserName);
+		currentUserData.add(jTextFieldCurUserName, "wrap");
+		
+		currentUserData.add(lblCurLoginTime);
+		currentUserData.add(jTextFieldCurLoginTime, "wrap");
+		
+		currentUserData.add(lblCurLogoutTime);
+		currentUserData.add(jTextFieldCurlogoutTime, "wrap");
+		
+		currentUserData.add(lblCurPreferredHand);
+		currentUserData.add(jTextFieldCurPreferredhand, "wrap");
+		
+		currentUserData.add(lblCurNotes);
+		currentUserData.add(jScrollPaneCurNotes, "wrap");
+		
+		currentUserData.add(jButtCurSignOut);
+		currentUserData.add(jButtCurUpdate);
+		/*
+		 * 
+		 */
+		
+		newUserData = new JPanel(new MigLayout());
+		newUserData.setBorder(BorderFactory.createTitledBorder("New User Data"));
+
+		JLabel lblNewPreferredHand = new JLabel("Preferred Hand");
+		jTextFieldNewPreferredhand = new JTextField(20);
+		
+		JLabel lblNewNotes = new JLabel("Notes (50)");
+		jTextAreaNewNotes = new JTextArea(10,10);
+		JScrollPane jScrollPaneNewNotes = new JScrollPane(jTextAreaNewNotes);
+		
+		jScrollPaneNewNotes.setPreferredSize(new Dimension(150, 200));
+		jTextAreaNewNotes.setWrapStyleWord(true);
+		jTextAreaNewNotes.setLineWrap(true);
+		
+		jButtNewUpdate = new JButton("Update");
+				
+		newUserData.add(lblNewPreferredHand);
+		newUserData.add(jTextFieldNewPreferredhand, "wrap");
+		newUserData.add(lblNewNotes);
+		newUserData.add(jScrollPaneNewNotes, "wrap");
+		
+		newUserData.add(jButtNewUpdate);
+		
+		/*
+		 * 
+		 */
+		
+		dataBasePanel.add(login, BorderLayout.NORTH);
+		dataBasePanel.add(currentUserData, BorderLayout.EAST);
+		dataBasePanel.add(newUserData, BorderLayout.WEST);
+		
+		return dataBasePanel;
 	}
 	
 	public Component leapControlPanelNorth(){
@@ -159,7 +297,7 @@ public class CreateAndShowGui{
 		JPanel statusPanel = new JPanel(new MigLayout());
 		statusPanel.setBorder(BorderFactory.createTitledBorder("System Status"));
 
-		jScrollStatus.setPreferredSize(new Dimension(300, 250));
+		jScrollStatus.setPreferredSize(new Dimension(290, 300));
 		jTextStatus.setWrapStyleWord(true);
 		jTextStatus.setLineWrap(true);
 	
