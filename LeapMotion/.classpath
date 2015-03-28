@@ -8,5 +8,6 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/Alan/Documents/FinalYearGitHubNew/Final_year/My JAR/LeapSDK/lib/LeapJava.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Alan/Documents/FinalYearGitHubNew/Final_year/My JAR/miglayout-4.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Alan/Documents/testing/mysql-connector-java-3.0.10-stable-bin.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

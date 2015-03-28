@@ -10,8 +10,10 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -65,7 +67,7 @@ public class CreateAndShowGui{
 	
 	protected JPanel login;
 	protected JTextField jTextFieldUserName;
-	protected JTextField jTextFieldPassword;
+	protected JPasswordField jPasswordFieldPassword;
 	protected JButton jButtLogin;
 	
 	/*
@@ -86,7 +88,8 @@ public class CreateAndShowGui{
 	 */
 	
 	protected JPanel newUserData;
-	protected JTextField jTextFieldNewPreferredhand;
+	//protected JTextField jTextFieldNewPreferredhand;
+	protected JComboBox<String> jComboPreferredHand;
 	protected JTextArea jTextAreaNewNotes;
 	protected JButton jButtNewUpdate;
 	
@@ -117,8 +120,6 @@ public class CreateAndShowGui{
 		JPanel dataBasePanel = new JPanel(new BorderLayout());
 		dataBasePanel.setBorder(BorderFactory.createTitledBorder("DataBase"));
 		
-		
-		
 		login = new JPanel(new MigLayout());
 		login.setBorder(BorderFactory.createTitledBorder("Login"));
 		
@@ -126,14 +127,14 @@ public class CreateAndShowGui{
 		jTextFieldUserName = new JTextField(20);
 		
 		JLabel lblPassword = new JLabel("Password");
-		jTextFieldPassword = new JTextField(20);
+		jPasswordFieldPassword = new JPasswordField(20);
 		
 		jButtLogin = new JButton("Login");
 		
 		login.add(lblUserName);
 		login.add(jTextFieldUserName, "wrap");
 		login.add(lblPassword);
-		login.add(jTextFieldPassword);
+		login.add(jPasswordFieldPassword);
 		login.add(jButtLogin);
 		
 		/*
@@ -190,10 +191,13 @@ public class CreateAndShowGui{
 		newUserData = new JPanel(new MigLayout());
 		newUserData.setBorder(BorderFactory.createTitledBorder("New User Data"));
 
-		JLabel lblNewPreferredHand = new JLabel("Preferred Hand");
-		jTextFieldNewPreferredhand = new JTextField(20);
+		String[] leftRight = {"Left", "Right"};
 		
-		JLabel lblNewNotes = new JLabel("Notes (50)");
+		JLabel lblNewPreferredHand = new JLabel("Preferred Hand");
+		jComboPreferredHand = new JComboBox<String>(leftRight);
+		jComboPreferredHand.setSelectedIndex(0);
+		
+		JLabel lblNewNotes = new JLabel("Notes");
 		jTextAreaNewNotes = new JTextArea(10,10);
 		JScrollPane jScrollPaneNewNotes = new JScrollPane(jTextAreaNewNotes);
 		
@@ -204,7 +208,7 @@ public class CreateAndShowGui{
 		jButtNewUpdate = new JButton("Update");
 				
 		newUserData.add(lblNewPreferredHand);
-		newUserData.add(jTextFieldNewPreferredhand, "wrap");
+		newUserData.add(jComboPreferredHand, "wrap");
 		newUserData.add(lblNewNotes);
 		newUserData.add(jScrollPaneNewNotes, "wrap");
 		

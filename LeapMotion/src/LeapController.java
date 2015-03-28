@@ -13,6 +13,7 @@ public class LeapController {
 	static LeapListener listener = null;
 	static Controller controller = null;
 	static EstablishConnection establishCon = null;
+	static DataBase database = null;
 	//static CreateAndShowGui showGUI = null;
 	
 	public static void main(String[] args) {
@@ -49,10 +50,15 @@ public class LeapController {
 		showGUI.jButtStopArm.setEnabled(false);
 		showGUI.jButtResetArm.setEnabled(false);
 		
+		showGUI.currentUserData.setVisible(false);
+		showGUI.newUserData.setVisible(false);
+		
 		establishCon = new EstablishConnection(showGUI);
 		
 		listener = new LeapListener(showGUI, establishCon); //Listener class
 		controller = new Controller(); //leap motion lib
+		
+		database = new DataBase(showGUI, listener);
 		
 		showGUI.lblLED3.setForeground(Color.GREEN);
 		showGUI.lblLED4.setForeground(Color.GREEN);
@@ -401,5 +407,85 @@ public class LeapController {
 				}
 			}
 		});
+		
+		/**********************************************************************************************************************
+		 * 
+		 * JButtStopArm ActionListener
+		 * 
+		 **********************************************************************************************************************/
+		
+		showGUI.jButtLogin.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					
+					database.connect();
+					
+					if(database.login() == true) {
+						showGUI.currentUserData.setVisible(true);
+						showGUI.login.setVisible(false);
+						showGUI.jButtCurUpdate.setEnabled(true);
+
+						database.updateLoginTime();
+						database.currentUserReadData();
+						
+					}
+				} catch (Exception e1) {
+					System.out.println(e1.getMessage());
+				}
+				
+			}
+		});
+		
+		showGUI.jButtCurSignOut.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					database.signout();
+					showGUI.login.setVisible(true);
+					showGUI.currentUserData.setVisible(false);
+					showGUI.newUserData.setVisible(false);
+					showGUI.jButtCurUpdate.setEnabled(true);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		
+		showGUI.jButtCurUpdate.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				showGUI.newUserData.setVisible(true);
+				showGUI.jButtCurUpdate.setEnabled(false);
+			}
+		});
+		
+		showGUI.jButtNewUpdate.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					database.updateData();
+					showGUI.newUserData.setVisible(false);
+					showGUI.jButtCurUpdate.setEnabled(true);
+					database.currentUserReadData();
+					showGUI.jTextAreaNewNotes.setText("");
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
+		
+		
 	}
 }
