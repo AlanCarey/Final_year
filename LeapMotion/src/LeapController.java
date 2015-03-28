@@ -55,10 +55,10 @@ public class LeapController {
 		
 		establishCon = new EstablishConnection(showGUI);
 		
-		listener = new LeapListener(showGUI, establishCon); //Listener class
-		controller = new Controller(); //leap motion lib
+		database = new DataBase(showGUI);
 		
-		database = new DataBase(showGUI, listener);
+		listener = new LeapListener(showGUI, establishCon, database); //Listener class
+		controller = new Controller(); //leap motion lib
 		
 		showGUI.lblLED3.setForeground(Color.GREEN);
 		showGUI.lblLED4.setForeground(Color.GREEN);
@@ -450,6 +450,20 @@ public class LeapController {
 					showGUI.currentUserData.setVisible(false);
 					showGUI.newUserData.setVisible(false);
 					showGUI.jButtCurUpdate.setEnabled(true);
+					showGUI.jTextFieldUserName.setText("");
+					showGUI.jPasswordFieldPassword.setText("");
+					
+					System.out.println("User = " + database.getCurrentUsername());
+					System.out.println("P Hand = " + database.getPreferred());
+					
+					
+					database.setCurrentUsername("");
+					database.setPreferred("");
+					
+					System.out.println("After Set");
+					
+					System.out.println("User = " + database.getCurrentUsername());
+					System.out.println("P Hand = " + database.getPreferred());
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}

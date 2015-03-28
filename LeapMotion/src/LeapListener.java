@@ -7,6 +7,8 @@ public class LeapListener extends Listener {
 	
 	private EstablishConnection establishCon = null;
 	
+	private DataBase database = null;
+	
 	private boolean systemStatsFlag = true;
 	
 	private boolean leapDataFlag = true;
@@ -29,10 +31,11 @@ public class LeapListener extends Listener {
 	
 	protected ArrayList<String> recordedData = new ArrayList<>();
 	
-	public LeapListener(CreateAndShowGui showGUI, EstablishConnection establishCon){
+	public LeapListener(CreateAndShowGui showGUI, EstablishConnection establishCon, DataBase database) {
 		
 		this.showGUI = showGUI;
 		this.establishCon = establishCon;
+		this.database = database;
 		
 	}
 	
@@ -83,47 +86,105 @@ public class LeapListener extends Listener {
 		/* Hand Data */
 		for(Hand hand: frame.hands()){
 			
-			handType = hand.isLeft() ? "Left Hand" : "Right Hand";
+			handType = hand.isLeft() ? "Left" : "Right";
+
+			if(database.getCurrentUsername().equals("")) {
 			
-			pinch = hand.pinchStrength();
-			pinch = pinch*100;
-			
-			//fix this showGUI.printStringData(data);
+				pinch = hand.pinchStrength();
+				pinch = pinch*100;
+				
+				//fix this showGUI.printStringData(data);
+							
+				normal = hand.palmPosition();
+				direction = hand.direction();
+				
+				x = normal.getX();
+				y = normal.getY();
+				z = normal.getZ();
+				
+				data = (int)x + ":" + (int)y + ":" + (int)z + ":" + (int)pinch;
+				
+				if(isLeapDataFlag() == true){
+					
+					showGUI.printFrameID("" + frame.id());
+					showGUI.printHands("" + frame.hands().count());
+					showGUI.printFingers("" + frame.fingers().count());
+					showGUI.printTools("" + frame.tools().count());
+					showGUI.printGestures("" + frame.gestures().count());
+					
+					showGUI.printLeftRight(handType);
+					showGUI.printPalmPosition("" + hand.palmPosition());
+					
+					showGUI.printX("" + normal.getX());
+					showGUI.printY("" + normal.getY());
+					showGUI.printZ("" + normal.getZ());
+					
+					showGUI.printYaw("" + Math.toDegrees(direction.yaw()));
+					showGUI.printRoll("" + Math.toDegrees(normal.roll()));
+				}
+				
+				if(establishCon.isInService() == true && establishCon.isInRecordService() == false) {
+					establishCon.sendTheData(data);
+				}
+				if(establishCon.isInService() == false && establishCon.isInRecordService() == true) {
+					System.out.println("In here");
+					recordedData.add(data);
+				}
+			}	
+			else if(!database.getCurrentUsername().equals("")) {
+				
+				System.out.println("handType = " + handType + "Perfer = " + database.getPreferred());
+				
+				if(database.getPreferred().equals(handType)) {
+				
+					pinch = hand.pinchStrength();
+					pinch = pinch*100;
+					
+					//fix this showGUI.printStringData(data);
+								
+					normal = hand.palmPosition();
+					direction = hand.direction();
+					
+					x = normal.getX();
+					y = normal.getY();
+					z = normal.getZ();
+					
+					data = (int)x + ":" + (int)y + ":" + (int)z + ":" + (int)pinch;
+					
+					if(isLeapDataFlag() == true){
 						
-			normal = hand.palmPosition();
-			direction = hand.direction();
-			
-			x = normal.getX();
-			y = normal.getY();
-			z = normal.getZ();
-			
-			data = (int)x + ":" + (int)y + ":" + (int)z + ":" + (int)pinch;
-			
-			if(isLeapDataFlag() == true){
+						showGUI.printFrameID("" + frame.id());
+						showGUI.printHands("" + frame.hands().count());
+						showGUI.printFingers("" + frame.fingers().count());
+						showGUI.printTools("" + frame.tools().count());
+						showGUI.printGestures("" + frame.gestures().count());
+						
+						showGUI.printLeftRight(handType);
+						showGUI.printPalmPosition("" + hand.palmPosition());
+						
+						showGUI.printX("" + normal.getX());
+						showGUI.printY("" + normal.getY());
+						showGUI.printZ("" + normal.getZ());
+						
+						showGUI.printYaw("" + Math.toDegrees(direction.yaw()));
+						showGUI.printRoll("" + Math.toDegrees(normal.roll()));
+					}
+					
+					if(establishCon.isInService() == true && establishCon.isInRecordService() == false) {
+						establishCon.sendTheData(data);
+					}
+					if(establishCon.isInService() == false && establishCon.isInRecordService() == true) {
+						System.out.println("In here");
+						recordedData.add(data);
+					}
+					
+				}
+				else {
+					
+					System.out.println("Not your preferred Hand, Switch god damnit!");
+					
+				}
 				
-				showGUI.printFrameID("" + frame.id());
-				showGUI.printHands("" + frame.hands().count());
-				showGUI.printFingers("" + frame.fingers().count());
-				showGUI.printTools("" + frame.tools().count());
-				showGUI.printGestures("" + frame.gestures().count());
-				
-				showGUI.printLeftRight(handType);
-				showGUI.printPalmPosition("" + hand.palmPosition());
-				
-				showGUI.printX("" + normal.getX());
-				showGUI.printY("" + normal.getY());
-				showGUI.printZ("" + normal.getZ());
-				
-				showGUI.printYaw("" + Math.toDegrees(direction.yaw()));
-				showGUI.printRoll("" + Math.toDegrees(normal.roll()));
-			}
-			
-			if(establishCon.isInService() == true && establishCon.isInRecordService() == false) {
-				establishCon.sendTheData(data);
-			}
-			if(establishCon.isInService() == false && establishCon.isInRecordService() == true) {
-				System.out.println("In here");
-				recordedData.add(data);
 			}
 		}	
 	}

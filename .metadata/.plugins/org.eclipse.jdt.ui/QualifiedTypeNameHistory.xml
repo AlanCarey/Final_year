@@ -15,4 +15,6 @@
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
+<fullyQualifiedTypeName name="org.omg.CORBA.DATA_CONVERSION"/>
+<fullyQualifiedTypeName name="DataBase"/>
 </qualifiedTypeNameHistroy>
