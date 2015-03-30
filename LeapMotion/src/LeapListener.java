@@ -127,13 +127,13 @@ public class LeapListener extends Listener {
 					establishCon.sendTheData(data);
 				}
 				if(establishCon.isInService() == false && establishCon.isInRecordService() == true) {
-					System.out.println("In here");
+					//System.out.println("In here");
 					recordedData.add(data);
 				}
 			}	
 			else if(!database.getCurrentUsername().equals("")) {
 				
-				System.out.println("handType = " + handType + "Perfer = " + database.getPreferred());
+				//System.out.println("handType = " + handType + "Perfer = " + database.getPreferred());
 				
 				if(database.getPreferred().equals(handType)) {
 				
@@ -174,14 +174,14 @@ public class LeapListener extends Listener {
 						establishCon.sendTheData(data);
 					}
 					if(establishCon.isInService() == false && establishCon.isInRecordService() == true) {
-						System.out.println("In here");
+						//System.out.println("In here");
 						recordedData.add(data);
 					}
 					
 				}
 				else {
 					
-					System.out.println("Not your preferred Hand, Switch god damnit!");
+					//System.out.println("Not your preferred Hand, Switch god damnit!");
 					
 				}
 				

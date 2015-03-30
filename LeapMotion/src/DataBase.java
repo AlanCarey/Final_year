@@ -4,7 +4,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
+
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
 public class DataBase {
 
@@ -15,12 +17,15 @@ public class DataBase {
 	private String currentUsername = "";
 	private String preferred = "";
 	
+	private String login = "";
+	private String logout = "";
+	private String notes = "";
+	
 	private int result;
 
 	// reference to database connection
 	private Connection connection;
-	private PreparedStatement sqlInsertTime;
-	private PreparedStatement sqlMaxUserid;
+	private PreparedStatement sqlInsert;
 
 	private CreateAndShowGui showGUI;
 	
@@ -30,128 +35,43 @@ public class DataBase {
 		
 	}
 	
-	//	public static void main(String[] args) throws Exception {
-	//
-	//		DataBase database = new DataBase();
-	//		database.connect();
-	//		database.readData();
-	//
-	//
-	//	}
+	public void addNewUser() throws Exception {
+		
+		String newUser = "";
+		char[] newPasswordTemp;
+		String newPassword = "";
+		
+		newUser = showGUI.jTextFieldCreateUserName.getText();
+		newPasswordTemp = showGUI.jPasswordFieldCreatePassword.getPassword();
+		
+		newPassword = new String(newPasswordTemp);
+		
+		if(newUser.equals("") || newPassword.equals("")) {
+			
+			//dont add to dbJPass
+			JOptionPane.showMessageDialog(null, "One or More Fileds is Empty");
+			
+		}
+		else if(!newUser.equals("") && !newPassword.equals("")) {
+			
+			sqlInsert = connection.prepareStatement("INSERT INTO `robotarmlogin`.`loginusers` (`Name`, `Password`, `LoginTIme`, `LogoutTime`, `Preferredhand`, `Notes`)"
+					+ " VALUES ('"+newUser+"', '"+newPassword+"', '', '', '', '')");
+			
+			connection.createStatement();
 
-//	public void readDat1a() throws SQLException {
-//		// sqlMaxUserid = connection.prepareStatement( "SELECT (StartTime,BreakIn,BreakOut,FinishTime) FROM staffhours WHERE NAME = Ian" );
-//		//  ResultSet maxuserid = sqlMaxUserid.executeQuery();
-//
-//		//	   if(maxuserid.next())
-//		//	   {
-//		//		   String st =  maxuserid.getString(1);
-//		//		   String bi =  maxuserid.getString(2);
-//		//		   String bo =  maxuserid.getString(3);
-//		//		String ft = null;
-//		//			String name = "Alan";
-//		//		   
-//		//		   
-//		//		   
-//		//		   System.out.print("Data Inserted" + st);
-//		//		   System.out.print("\nData Inserted" + bi);
-//		//		   System.out.print("\nData Inserted" + bo);
-//		//		   System.out.print("Data Inserted" + ft);
-//		//		String userName = "Ian";
-//		//
-//		String query = "SELECT Password,LoginTime,LogoutTime,notes FROM login " +
-//				"WHERE Name = '"+name+"'";
-//		Statement stmt = connection.createStatement();
-//		ResultSet rs = stmt.executeQuery(query);
-//
-//		if(rs.next())
-//		{
-//			String st =  rs.getString("Password");
-//			String bi =  rs.getString("LoginTime");
-//			String bo =  rs.getString("LogoutTime");
-//			ft =  rs.getString("Notes");
-//
-//
-//
-//
-//
-//
-//			System.out.print("st" + st);
-//			System.out.print("\nbi\t" + bi);
-//			if(ft!=null)
-//			{
-//				System.out.print("SHE IS EMPTY");
-//			}
-//			System.out.print("\nbo\t" + bo);
-//			System.out.print("\nft\t" + ft);
-//
-//		}
-//		if(ft==null)
-//		{
-//			System.out.print("SHE IS EMPTY");
-//		}
-//
-//		connection.close();
-//
-//		//		int i = 0;
-//		//
-//		//		while(i < 5) {
-//		/*
-//			try{	 
-//
-//				String user = "" ;
-//				String password = "";
-//				String time = "";
-//				String notes = "";
-//
-//				Scanner sc = new Scanner(System.in);
-//				System.out.println("Enter Your user name: ");
-//				user = sc.next();
-//
-//				System.out.println("Enter Your password: ");
-//				password = sc.next();
-//
-//				System.out.println("Notes?: ");
-//				notes = sc.next();
-//
-//				Date d = new Date(System.currentTimeMillis());
-//				System.out.print(d);
-//
-//				time = d.toString();
-//
-//				sqlInsertTime = connection.prepareStatement(
-//						"UPDATE login SET LoginTime = '"+time+"', Password = '"+password+"', Notes = '"+notes+"' " + 
-//						"WHERE Name = '"+user+"' ");
-//
-//
-//				result = sqlInsertTime.executeUpdate();
-//
-//				if ( result == 0 ) {
-//					connection.rollback(); // rollback update
-//
-//				}      
-//
-//				connection.commit();        
-//				//i++;
-//			}
-//			catch ( SQLException sqlException ) {
-//				// rollback transaction
-//				System.out.println("SQL exception = " + sqlException);
-//			}
-//
-//			System.out.print("Data Inserted");
-//
-//			sqlInsertTime.close();
-//			// sqlMaxUserid.close();
-//			//connection.close();
-//
-//
-////		}
-//
-//		connection.close();
-//		 */
-//	}
+			result = sqlInsert.executeUpdate();
 
+			if ( result == 0 ) {
+				connection.rollback(); // rollback update
+
+			}      
+			connection.commit();
+			
+			JOptionPane.showMessageDialog(null, "You Are Now Added: " + newUser);
+			
+		}        
+	}
+	
 	public void currentUserReadData() throws Exception{
 
 		String query = "SELECT LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
@@ -161,20 +81,34 @@ public class DataBase {
 
 		if(rs.next())
 		{
-			String login =  rs.getString("LoginTime");
-			String logout =  rs.getString("LogoutTime");
-			String notes =  rs.getString("Notes");
+			login =  rs.getString("LoginTime");
+			logout =  rs.getString("LogoutTime");
+			notes =  rs.getString("Notes");
 			preferred = rs.getString("PreferredHand");
 			
-			showGUI.jTextFieldCurUserName.setText(currentUsername);
-			showGUI.jTextFieldCurLoginTime.setText(login);
-			showGUI.jTextFieldCurlogoutTime.setText(logout);
-			showGUI.jTextAreaCurNotes.setText(notes);
-			showGUI.jTextFieldCurPreferredhand.setText(preferred);
+			SwingUtilities.invokeLater(new Runnable() {
+				
+				@Override
+				public void run() {
+					
+					showGUI.jTextFieldCurUserName.setText(currentUsername);
+					showGUI.jTextFieldCurLoginTime.setText(login);
+					showGUI.jTextFieldCurlogoutTime.setText(logout);
+					showGUI.jTextAreaCurNotes.setText(notes);
+					showGUI.jTextFieldCurPreferredhand.setText(preferred);
+					
+				}
+			});
 		}
 
 	}
 
+	public void closeConnection() throws Exception {
+		
+		connection.close();	
+		
+	}
+	
 	public void signout() throws Exception{
 		
 		updateLogoutTime();
@@ -186,23 +120,23 @@ public class DataBase {
 	public void updateLoginTime() throws Exception { 
 		
 		Date d = new Date(System.currentTimeMillis());
-		System.out.print(d);
+		//System.out.print(d);
 
 		String time = d.toString();
 
-		sqlInsertTime = connection.prepareStatement(
+		sqlInsert = connection.prepareStatement(
 				"UPDATE loginusers SET LoginTime = '"+time+"' " + 
 				"WHERE Name = '"+currentUsername+"' ");
 
 
-		result = sqlInsertTime.executeUpdate();
+		result = sqlInsert.executeUpdate();
 
 		if ( result == 0 ) {
 			connection.rollback(); // rollback update
 
 		}      
 
-		sqlInsertTime.close();
+		sqlInsert.close();
 		
 		connection.commit();        
 		
@@ -211,23 +145,23 @@ public class DataBase {
 	public void updateLogoutTime() throws Exception{
 		
 		Date d = new Date(System.currentTimeMillis());
-		System.out.print(d);
+		//System.out.print(d);
 
 		String time = d.toString();
 
-		sqlInsertTime = connection.prepareStatement(
+		sqlInsert = connection.prepareStatement(
 				"UPDATE loginusers SET LogoutTime = '"+time+"' " + 
 				"WHERE Name = '"+currentUsername+"' ");
 
 
-		result = sqlInsertTime.executeUpdate();
+		result = sqlInsert.executeUpdate();
 
 		if ( result == 0 ) {
 			connection.rollback(); // rollback update
 
 		}      
 
-		sqlInsertTime.close();
+		sqlInsert.close();
 		
 		connection.commit();        
 		
@@ -237,14 +171,14 @@ public class DataBase {
 
 		String notes = showGUI.jTextAreaNewNotes.getText();
 		String preferred = showGUI.jComboPreferredHand.getSelectedItem().toString();	
-		System.out.println(notes + preferred);
+		//System.out.println(notes + preferred);
 		
-		sqlInsertTime = connection.prepareStatement(
+		sqlInsert = connection.prepareStatement(
 				"UPDATE loginusers SET PreferredHand = '"+ preferred +"', Notes = '"+ notes +"' " + 
 						"WHERE Name = '"+currentUsername+"' ");
 
 
-		result = sqlInsertTime.executeUpdate();
+		result = sqlInsert.executeUpdate();
 
 		if ( result == 0 ) {
 			connection.rollback(); // rollback update
@@ -261,13 +195,10 @@ public class DataBase {
 		char[] passwordtemp = showGUI.jPasswordFieldPassword.getPassword();
 		
 		String password = new String(passwordtemp);
-		
-		
-		
+			
 		if(currentUsername.isEmpty() || password.isEmpty()) {
 			
-			showGUI.printStatus("No Data In either Field, Try Again");
-		
+			JOptionPane.showMessageDialog(null, "No Data Entered in Either Field, Try Again");
 		}
 		else {
 
@@ -279,11 +210,11 @@ public class DataBase {
 	
 			if(rs.next()) {
 				
-				System.out.println("In here");
+				//System.out.println("In here");
 				//String dbUsername = rs.getString("Name");
 				String dbPassword = rs.getString("Password");
 				
-				System.out.println(password + dbPassword);
+				//System.out.println(password + dbPassword);
 				
 				if(password.equals(dbPassword)) {
 						
@@ -296,14 +227,14 @@ public class DataBase {
 				}
 				else {
 		
-					showGUI.printStatus("Invalid Password");
+					JOptionPane.showMessageDialog(null, "Invalid Password");
 						
 					return false;
 				}
 			}
 			else {
 								
-				showGUI.printStatus("Invalid Username");
+				JOptionPane.showMessageDialog(null, "Invalid Username");
 					
 				return false;
 			}
@@ -315,7 +246,7 @@ public class DataBase {
 		
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			connection = DriverManager.getConnection(dbURL, username, password);
-			System.out.println("Connected to database....\n");
+			//System.out.println("Connected to database....\n");
 			connection.setAutoCommit( false );
 	
 	}

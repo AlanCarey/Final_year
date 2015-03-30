@@ -52,6 +52,8 @@ public class LeapController {
 		
 		showGUI.currentUserData.setVisible(false);
 		showGUI.newUserData.setVisible(false);
+		showGUI.createNewUser.setVisible(false);
+		
 		
 		establishCon = new EstablishConnection(showGUI);
 		
@@ -450,20 +452,21 @@ public class LeapController {
 					showGUI.currentUserData.setVisible(false);
 					showGUI.newUserData.setVisible(false);
 					showGUI.jButtCurUpdate.setEnabled(true);
+					
 					showGUI.jTextFieldUserName.setText("");
 					showGUI.jPasswordFieldPassword.setText("");
 					
-					System.out.println("User = " + database.getCurrentUsername());
-					System.out.println("P Hand = " + database.getPreferred());
+					//System.out.println("User = " + database.getCurrentUsername());
+					//System.out.println("P Hand = " + database.getPreferred());
 					
 					
 					database.setCurrentUsername("");
 					database.setPreferred("");
 					
-					System.out.println("After Set");
+					//System.out.println("After Set");
 					
-					System.out.println("User = " + database.getCurrentUsername());
-					System.out.println("P Hand = " + database.getPreferred());
+					//System.out.println("User = " + database.getCurrentUsername());
+					//System.out.println("P Hand = " + database.getPreferred());
 				} catch (Exception e1) {
 					e1.printStackTrace();
 				}
@@ -500,6 +503,52 @@ public class LeapController {
 			}
 		});
 		
+		showGUI.jButtCreateNewUser.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				//set gui visible
+				showGUI.createNewUser.setVisible(true);
+				
+			}
+		});
 		
+		showGUI.jButtCancelCreate.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+				//clear fields and vet visible to false
+				
+				
+				showGUI.jTextFieldCreateUserName.setText("");
+				showGUI.jPasswordFieldCreatePassword.setText("");
+				
+				showGUI.createNewUser.setVisible(false);
+				
+			}
+		});
+		
+		showGUI.jButtConfirmCreate.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					database.connect();
+					database.addNewUser();
+					database.closeConnection();
+					showGUI.jTextFieldCreateUserName.setText("");
+					showGUI.jPasswordFieldCreatePassword.setText("");
+					
+					showGUI.createNewUser.setVisible(false);
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 	}
 }

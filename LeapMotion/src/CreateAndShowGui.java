@@ -3,12 +3,7 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-
-import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -69,6 +64,7 @@ public class CreateAndShowGui{
 	protected JTextField jTextFieldUserName;
 	protected JPasswordField jPasswordFieldPassword;
 	protected JButton jButtLogin;
+	protected JButton jButtCreateNewUser;
 	
 	/*
 	 * 
@@ -92,6 +88,17 @@ public class CreateAndShowGui{
 	protected JComboBox<String> jComboPreferredHand;
 	protected JTextArea jTextAreaNewNotes;
 	protected JButton jButtNewUpdate;
+	
+	/*
+	 * 
+	 */
+	
+	protected JPanel createNewUser;
+	
+	protected JTextField jTextFieldCreateUserName;
+	protected JPasswordField jPasswordFieldCreatePassword;
+	protected JButton jButtConfirmCreate;
+	protected JButton jButtCancelCreate;
 	
 	BufferedImage myPicture = null;;
 	
@@ -131,12 +138,14 @@ public class CreateAndShowGui{
 		
 		jButtLogin = new JButton("Login");
 		
+		jButtCreateNewUser = new JButton("Create New User");
+		
 		login.add(lblUserName);
 		login.add(jTextFieldUserName, "wrap");
 		login.add(lblPassword);
 		login.add(jPasswordFieldPassword);
 		login.add(jButtLogin);
-		
+		login.add(jButtCreateNewUser);
 		/*
 		 * 
 		 */
@@ -214,6 +223,24 @@ public class CreateAndShowGui{
 		
 		newUserData.add(jButtNewUpdate);
 		
+		createNewUser = new JPanel(new MigLayout());
+		createNewUser.setBorder(BorderFactory.createTitledBorder("Create New User"));
+		
+		JLabel lblNewUserName = new JLabel("Username");
+		jTextFieldCreateUserName = new JTextField(20);
+		JLabel lblNewpassword = new JLabel("Password");
+		jPasswordFieldCreatePassword = new JPasswordField(20);
+		jButtConfirmCreate = new JButton("Confirm");
+		jButtCancelCreate = new JButton("Cancel");
+		
+		createNewUser.add(lblNewUserName);
+		createNewUser.add(jTextFieldCreateUserName, "wrap");
+		createNewUser.add(lblNewpassword);
+		createNewUser.add(jPasswordFieldCreatePassword);
+		createNewUser.add(jButtConfirmCreate);
+		createNewUser.add(jButtCancelCreate);
+		
+		
 		/*
 		 * 
 		 */
@@ -221,6 +248,7 @@ public class CreateAndShowGui{
 		dataBasePanel.add(login, BorderLayout.NORTH);
 		dataBasePanel.add(currentUserData, BorderLayout.EAST);
 		dataBasePanel.add(newUserData, BorderLayout.WEST);
+		dataBasePanel.add(createNewUser, BorderLayout.SOUTH);
 		
 		return dataBasePanel;
 	}

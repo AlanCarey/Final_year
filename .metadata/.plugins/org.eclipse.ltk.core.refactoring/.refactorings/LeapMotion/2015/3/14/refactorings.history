@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;sqlInsertTime&apos; in &apos;DataBase&apos; to &apos;sqlInsert&apos;&#x0D;&#x0A;- Original project: &apos;LeapMotion&apos;&#x0D;&#x0A;- Original element: &apos;DataBase.sqlInsertTime&apos;&#x0D;&#x0A;- Renamed element: &apos;DataBase.sqlInsert&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;sqlInsertTime&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;{DataBase.java[DataBase^sqlInsertTime" name="sqlInsert" references="true" setter="false" stamp="1427674618399" textual="false" version="1.0"/>
+</session>
