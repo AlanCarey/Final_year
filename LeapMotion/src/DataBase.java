@@ -1,3 +1,11 @@
+/**
+ * Class to handle all database interactions
+ * 
+ * @author G00269534(Alan Carey)
+ * @version 1.0
+ * @since 23-03-2015
+ */
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -29,11 +37,23 @@ public class DataBase {
 
 	private CreateAndShowGui showGUI;
 	
+	/**
+	 * Constructor that passes the reference of the GUI object 
+	 * 
+	 * @param showGUI Reference of the GUI
+	 */
+	
 	public DataBase(CreateAndShowGui showGUI) {
 		
 		this.showGUI = showGUI;
 		
 	}
+	
+	/**
+	 * This will add a new user to the database
+	 * 
+	 * @throws Exception
+	 */
 	
 	public void addNewUser() throws Exception {
 		
@@ -72,6 +92,12 @@ public class DataBase {
 		}        
 	}
 	
+	/**
+	 * Read the data of the current user and display their information on the GUI 
+	 * 
+	 * @throws Exception
+	 */
+	
 	public void currentUserReadData() throws Exception{
 
 		String query = "SELECT LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
@@ -103,11 +129,23 @@ public class DataBase {
 
 	}
 
+	/**
+	 * Close the connection to the database
+	 * 
+	 * @throws Exception
+	 */
+	
 	public void closeConnection() throws Exception {
 		
 		connection.close();	
 		
 	}
+	
+	/**
+	 * Sign the current user out
+	 * 
+	 * @throws Exception
+	 */
 	
 	public void signout() throws Exception{
 		
@@ -116,6 +154,12 @@ public class DataBase {
 		showGUI.printStatus("Bye " + currentUsername);
 
 	}
+	
+	/**
+	 * Update the login time on the database of each user as they login
+	 * 
+	 * @throws Exception
+	 */
 	
 	public void updateLoginTime() throws Exception { 
 		
@@ -142,6 +186,12 @@ public class DataBase {
 		
 	}
 
+	/**
+	 * Update the logout time on the database of each user as they logout
+	 * 
+	 * @throws Exception
+	 */
+	
 	public void updateLogoutTime() throws Exception{
 		
 		Date d = new Date(System.currentTimeMillis());
@@ -167,6 +217,12 @@ public class DataBase {
 		
 	}
 	
+	/**
+	 * Update the users new data they want to change
+	 * 
+	 * @throws Exception
+	 */
+	
 	public void updateData() throws Exception{
 
 		String notes = showGUI.jTextAreaNewNotes.getText();
@@ -189,6 +245,13 @@ public class DataBase {
 		
 	}
 
+	/**
+	 * Login the user with safety checks
+	 * 
+	 * @return true Login successful | false Login unsuccessful
+	 * @throws Exception
+	 */
+	
 	public boolean login() throws Exception{
 
 		currentUsername = showGUI.jTextFieldUserName.getText();
@@ -242,6 +305,12 @@ public class DataBase {
 		return false;
 	}
 
+	/**
+	 * Connect to the database	
+	 * 
+	 * @throws Exception
+	 */
+	
 	public void connect() throws Exception {
 		
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -251,18 +320,42 @@ public class DataBase {
 	
 	}
 	
+	
+	/**
+	 * Gets the current user
+	 * 
+	 * @return currentUserName 
+	 */
 	public String getCurrentUsername() {
 		return currentUsername;
 	}
 
+	/**
+	 * Sets the current user
+	 * 
+	 * @param currentUsername Set the user
+	 */
+	
 	public void setCurrentUsername(String currentUsername) {
 		this.currentUsername = currentUsername;
 	}
 
+	/**
+	 * gets the preferred hand of the user
+	 * 
+	 * @return preferred
+	 */
+	
 	public String getPreferred() {
 		return preferred;
 	}
 
+	/**
+	 * Sets the users preferred hand
+	 * 
+	 * @param preferred
+	 */
+	
 	public void setPreferred(String preferred) {
 		this.preferred = preferred;
 	}

@@ -1,11 +1,22 @@
+/**
+ * Class to create and show the GUI application 
+ * 
+ * @author G00269534(Alan Carey)
+ * @version 1.0
+ * @since 10-10-2014
+ * 
+ */
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
@@ -102,28 +113,34 @@ public class CreateAndShowGui{
 	
 	BufferedImage myPicture = null;;
 	
+	/**
+	 * Constructor to set up the Jframe data when the object is created
+	 */
+	
 	public CreateAndShowGui(){
 				
+		JFrame frame = new JFrame ("Leap Controller User GUI");
+		
+		frame.setSize(1380, 600);
+		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		
+		frame.add(leapControlPanelNorth(), BorderLayout.NORTH);
+		frame.add(leapDataPanelWest(), BorderLayout.WEST);
+		frame.add(leapStatusPanelEast(), BorderLayout.EAST);
+		frame.add(leapControlPanelSouth(), BorderLayout.SOUTH);
+		frame.add(dataBasePanelCenter(), BorderLayout.CENTER);
+		frame.setVisible (true);
 		
 	}
 
-	public Component liveVideoPanelCenter(){
-		
-//		JPanel videoPanel = new JPanel(new MigLayout());
-//		videoPanel.setBorder(BorderFactory.createTitledBorder("Live Video Stream"));
-//	
-//		try {
-//			myPicture = ImageIO.read(new File("C:/Users/Alan/Documents/FinalYearGitHubNew/Final_year/yes.JPG"));
-//		} catch (IOException e) {
-//
-//			e.printStackTrace();
-//		}
-//
-//		JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-//		videoPanel.add(picLabel);
-//		
-//		return videoPanel;
-		
+	/**
+	 * Setup the center GUI panel
+	 * 
+	 * @return Component Center Panel
+	 */
+	
+	public Component dataBasePanelCenter(){
+				
 		JPanel dataBasePanel = new JPanel(new BorderLayout());
 		dataBasePanel.setBorder(BorderFactory.createTitledBorder("DataBase"));
 		
@@ -253,6 +270,12 @@ public class CreateAndShowGui{
 		return dataBasePanel;
 	}
 	
+	/**
+	 * Setup the north GUI panel
+	 * 
+	 * @return Component North Panel 
+	 */
+	
 	public Component leapControlPanelNorth(){
 		
 		JPanel controlPanel = new JPanel(new MigLayout());
@@ -280,11 +303,19 @@ public class CreateAndShowGui{
 		return controlPanel;
 	}
 	
+	/**
+	 * Setup the south GUI panel 
+	 * 
+	 * @return Component South Panel
+	 */
+	
     public Component leapControlPanelSouth(){
 		
 		JPanel controlPanel = new JPanel(new MigLayout());
 		controlPanel.setBorder(BorderFactory.createTitledBorder("Robotic Arm Control Buttons"));
-				
+		
+		//controlPanel.setBackground(new Color(255, 0, 0));
+		
 		jButtStartRecording = new JButton("Start Recording");
 		jButtStopRecording = new JButton("Stop Recording");
 		jButtPlayRecord = new JButton("Play Record");
@@ -301,6 +332,12 @@ public class CreateAndShowGui{
 		return controlPanel;
 	}
 	
+    /**
+     * Setup the East GUI Panel 
+     * 
+     * @return Component East Panel
+     */
+    
 	public Component leapStatusPanelEast(){
 		
 		jTextStatus = new JTextArea(10, 10);
@@ -346,6 +383,11 @@ public class CreateAndShowGui{
 		return statusPanel; 
 	}
 	
+	/**
+	 * Setup the west GUI panel
+	 * 
+	 * @return Component West Panel
+	 */
 	
 	public Component leapDataPanelWest(){
 		
@@ -418,6 +460,12 @@ public class CreateAndShowGui{
 		
 	}
 
+	/**
+	 * Print out the FrameID
+	 * 
+	 * @param frameID The FrameID
+	 */
+	
 	public void printFrameID(final String frameID){
 		
 		SwingUtilities.invokeLater(new Runnable() {
@@ -431,6 +479,12 @@ public class CreateAndShowGui{
 		});
 		
 	}
+	
+	/**
+	 * Print out the hand data
+	 * 
+	 * @param hands The hand data
+	 */
 	
 	public void printHands(final String hands){
 		
@@ -446,6 +500,12 @@ public class CreateAndShowGui{
 		
 	}
 	
+	/**
+	 * Print out the finger data
+	 * 
+	 * @param fingers The finger data
+	 */
+	
 	public void printFingers(final String fingers){
 		
 		SwingUtilities.invokeLater(new Runnable() {
@@ -459,6 +519,12 @@ public class CreateAndShowGui{
 		});
 		
 	}
+	
+	/**
+	 * Print out the tools data
+	 * 
+	 * @param tools The tool data
+	 */
 	
 	public void printTools(final String tools){
 		
@@ -474,6 +540,12 @@ public class CreateAndShowGui{
 		
 	}
 	
+	/**
+	 * Print out the gestures data
+	 * 
+	 * @param gestures The gestures data
+	 */
+	
 	public void printGestures(final String gestures){
 		
 		SwingUtilities.invokeLater(new Runnable() {
@@ -487,6 +559,12 @@ public class CreateAndShowGui{
 		});
 		
 	}
+	
+	/**
+	 * Print out the Palm Position data
+	 * 
+	 * @param palmPos The palm position data
+	 */
 	
 	public void printPalmPosition(final String palmPos){
 		
@@ -502,6 +580,12 @@ public class CreateAndShowGui{
 		
 	}
 	
+	/**
+	 * Print out the x coord data
+	 * 
+	 * @param x The x coord data
+	 */
+	
 	public void printX(final String x){
 		
 		SwingUtilities.invokeLater(new Runnable() {
@@ -515,6 +599,12 @@ public class CreateAndShowGui{
 		});
 		
 	}
+	
+	/**
+	 * Print out the y coord data
+	 * 
+	 * @param y The y coord data
+	 */
 	
 	public void printY(final String y){
 		
@@ -530,6 +620,12 @@ public class CreateAndShowGui{
 		
 	}
 	
+	/**
+	 * Print out the z coord data
+	 * 
+	 * @param z The z coord data
+	 */
+	
 	public void printZ(final String z){
 		
 		SwingUtilities.invokeLater(new Runnable() {
@@ -543,6 +639,12 @@ public class CreateAndShowGui{
 		});
 		
 	}
+	
+	/**
+	 * Print out left/right hand data
+	 * 
+	 * @param leftRight The left/right hand data
+	 */
 	
 	public void printLeftRight(final String leftRight){
 		
@@ -558,6 +660,12 @@ public class CreateAndShowGui{
 		
 	}
 	
+	/**
+	 * Print out the yaw data
+	 * 
+	 * @param yaw the yaw data
+	 */
+	
 	public void printYaw(final String yaw){
 		
 		SwingUtilities.invokeLater(new Runnable() {
@@ -571,6 +679,12 @@ public class CreateAndShowGui{
 		});
 		
 	}
+	
+	/**
+	 * Print out the roll data
+	 * 
+	 * @param roll The roll data
+	 */
 	
 	public void printRoll(final String roll){
 		
@@ -586,6 +700,12 @@ public class CreateAndShowGui{
 		
 	}
 	
+	/**
+	 * Print out the status information data
+	 * 
+	 * @param status The status information data
+	 */
+	
 	public void printStatus(final String status){
 		
     	SwingUtilities.invokeLater(new Runnable() {
@@ -595,6 +715,12 @@ public class CreateAndShowGui{
 			}
 		});
 	}
+	
+	/**
+	 * Set all data fields
+	 * 
+	 * @param toDo Data to set
+	 */
 	
 	public void setAllLeapDataFields(final String toDo){
 		
@@ -622,5 +748,34 @@ public class CreateAndShowGui{
 		
 	}
 	
+	/**
+	 * Initialize all buttons to start up state
+	 */
+	
+	public void initButtons() {
+		
+		jButtActivate.setEnabled(true);
+		jButtDeactivate.setEnabled(false);
+		jButtSendData.setEnabled(false);
+		jButtCloseData.setEnabled(false);
+		jButtStartRecording.setEnabled(false);
+		jButtStopRecording.setEnabled(false);
+		
+		jButtStartSystemStats.setEnabled(false);
+		jButtStopSystemStats.setEnabled(true);
+		jButtStartLeapData.setEnabled(false);
+		jButtPlayRecord.setEnabled(false);
+		jButtStopLeapData.setEnabled(true);
+		
+		jButtStopArm.setEnabled(false);
+		jButtResetArm.setEnabled(false);
+		
+		currentUserData.setVisible(false);
+		newUserData.setVisible(false);
+		createNewUser.setVisible(false);
+	
+		lblLED3.setForeground(Color.GREEN);
+		lblLED4.setForeground(Color.GREEN);
+	}
 	
 }

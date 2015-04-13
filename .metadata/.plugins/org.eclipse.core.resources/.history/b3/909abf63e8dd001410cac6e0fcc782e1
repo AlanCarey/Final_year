@@ -1,0 +1,69 @@
+import java.awt.BorderLayout;
+import java.awt.Color;
+import javax.swing.JFrame;
+import com.leapmotion.leap.*;
+
+public class LeapController {
+
+	static LeapListener listener = null;
+	static Controller controller = null;
+	static EstablishConnection establishCon = null;
+	static DataBase database = null;
+	static ActionListeners actionListener= null;
+	//static CreateAndShowGui showGUI = null;
+	
+	public static void main(String[] args) {
+		
+		final CreateAndShowGui showGUI = new CreateAndShowGui();		
+		
+		JFrame frame = new JFrame ("Leap Controller User GUI");
+		
+		frame.setSize(1380, 600);
+		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
+		
+		frame.add(showGUI.leapControlPanelNorth(), BorderLayout.NORTH);
+		frame.add(showGUI.leapDataPanelWest(), BorderLayout.WEST);
+		frame.add(showGUI.leapStatusPanelEast(), BorderLayout.EAST);
+		frame.add(showGUI.leapControlPanelSouth(), BorderLayout.SOUTH);
+		frame.add(showGUI.liveVideoPanelCenter(), BorderLayout.CENTER);
+		
+		frame.setVisible (true);
+		//frame.pack();
+		
+		showGUI.jButtActivate.setEnabled(true);
+		showGUI.jButtDeactivate.setEnabled(false);
+		showGUI.jButtSendData.setEnabled(false);
+		showGUI.jButtCloseData.setEnabled(false);
+		showGUI.jButtStartRecording.setEnabled(false);
+		showGUI.jButtStopRecording.setEnabled(false);
+		
+		showGUI.jButtStartSystemStats.setEnabled(false);
+		showGUI.jButtStopSystemStats.setEnabled(true);
+		showGUI.jButtStartLeapData.setEnabled(false);
+		showGUI.jButtPlayRecord.setEnabled(false);
+		showGUI.jButtStopLeapData.setEnabled(true);
+		
+		showGUI.jButtStopArm.setEnabled(false);
+		showGUI.jButtResetArm.setEnabled(false);
+		
+		showGUI.currentUserData.setVisible(false);
+		showGUI.newUserData.setVisible(false);
+		showGUI.createNewUser.setVisible(false);
+		
+		
+		establishCon = new EstablishConnection(showGUI);
+		
+		database = new DataBase(showGUI);
+		
+		listener = new LeapListener(showGUI, establishCon, database); //Listener class
+		controller = new Controller(); //leap motion lib
+		
+		actionListener = new ActionListeners(showGUI, listener, controller, establishCon, database);
+		
+		actionListener.setUpActionListeners();
+		
+		showGUI.lblLED3.setForeground(Color.GREEN);
+		showGUI.lblLED4.setForeground(Color.GREEN);
+	}
+	
+}

@@ -1,3 +1,12 @@
+/**
+ * Class that listens to the leap motion information
+ * 
+ * @author G00269534(Alan Carey)
+ * @version 1.0
+ * @since 20-09-2014
+ * 
+ */
+
 import java.util.ArrayList;
 import com.leapmotion.leap.*;
 
@@ -31,6 +40,14 @@ public class LeapListener extends Listener {
 	
 	protected ArrayList<String> recordedData = new ArrayList<>();
 	
+	/**
+	 * Constructor to pass the reference of the created objects
+	 * 
+	 * @param showGUI Reference to GUI object
+	 * @param establishCon Reference to Establish Connection object
+	 * @param database Reference to DataBase object
+	 */
+	
 	public LeapListener(CreateAndShowGui showGUI, EstablishConnection establishCon, DataBase database) {
 		
 		this.showGUI = showGUI;
@@ -39,6 +56,10 @@ public class LeapListener extends Listener {
 		
 	}
 	
+	/**
+	 * This method monitors the initialization of the leap device
+	 */
+	
 	public void onInit(Controller controller){
 		
 		if(isSystemStatsFlag() == true){
@@ -46,6 +67,10 @@ public class LeapListener extends Listener {
 			//System.out.println("Initialised");	
 		}
 	}
+	
+	/**
+	 * This method monitors the on connection of the leap device
+	 */
 	
 	public void onConnect(Controller controller){
 		if(isSystemStatsFlag() == true){
@@ -60,6 +85,10 @@ public class LeapListener extends Listener {
 
 	}
 	
+	/**
+	 * This method monitors the on disconnect of the leap device
+	 */
+	
 	public void onDisconnect(Controller controller){
 		
 		if(isSystemStatsFlag() == true){
@@ -70,6 +99,10 @@ public class LeapListener extends Listener {
 		
 	}
 	
+	/**
+	 * This method monitors the on exit of the leap device
+	 */
+	
 	public void OnExit(Controller controller){
 	
 		if(isSystemStatsFlag() == true){
@@ -77,6 +110,10 @@ public class LeapListener extends Listener {
 			//System.out.println("Exited");
 		}
 	}
+	
+	/**
+	 * This method monitors all the data of each frame on the leap device
+	 */
 	
 	public void onFrame(Controller controller){
 		
@@ -189,17 +226,29 @@ public class LeapListener extends Listener {
 		}	
 	}
 	
+	/**
+	 * Send command to arm to power off
+	 */
+	
 	public void sendPowerOffSignal() {
 		
 		establishCon.sendTheData("0");
 		
 	}
 	
+	/**
+	 * Send command to arm to reset position(default) 
+	 */
+	
 	public void sendResetSignal() {
 		
 		establishCon.sendTheData("1");
 		
 	}
+	
+	/**
+	 * Sends data recorded to the arm for execution
+	 */
 	
 	public void sendRecordedData() {
 		
@@ -210,18 +259,38 @@ public class LeapListener extends Listener {
 		}
 	}
 	
+	/**
+	 * Check state of system stats
+	 * @return SystemStatsFlag
+	 */
+	
 	public boolean isSystemStatsFlag() {
 		return systemStatsFlag;
 	}
+	
+	/**
+	 * Set the system stats falg
+	 * @param systemStatsFlag The state of the flag
+	 */
 
 	public void setSystemStatsFlag(boolean systemStatsFlag) {
 		this.systemStatsFlag = systemStatsFlag;
 	}
 
+	/**
+	 * Check state of leap data flag
+	 * @return LeapDataFlag
+	 */
+	
 	public boolean isLeapDataFlag() {
 		return leapDataFlag;
 	}
 
+	/**
+	 * Set the leap data flag
+	 * @param leapDataFlag The state of the flag
+	 */
+	
 	public void setLeapDataFlag(boolean leapDataFlag) {
 		this.leapDataFlag = leapDataFlag;
 	}	

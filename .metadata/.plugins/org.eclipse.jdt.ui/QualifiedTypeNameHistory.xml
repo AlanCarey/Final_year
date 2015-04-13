@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.swing.JScrollPane"/>
-<fullyQualifiedTypeName name="CreateAndShowGui"/>
-<fullyQualifiedTypeName name="com.leapmotion.leap.Listener"/>
 <fullyQualifiedTypeName name="javax.swing.JComboBox"/>
 <fullyQualifiedTypeName name="org.omg.CORBA.DATA_CONVERSION"/>
 <fullyQualifiedTypeName name="javax.swing.JPanel"/>
@@ -14,11 +12,19 @@
 <fullyQualifiedTypeName name="javax.swing.Action"/>
 <fullyQualifiedTypeName name="javax.swing.JLabel"/>
 <fullyQualifiedTypeName name="java.awt.event.ActionListener"/>
-<fullyQualifiedTypeName name="DataBase"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="javax.swing.SwingUtilities"/>
 <fullyQualifiedTypeName name="java.lang.Runnable"/>
 <fullyQualifiedTypeName name="javax.swing.JPasswordField"/>
 <fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="com.leapmotion.leap.Listener"/>
+<fullyQualifiedTypeName name="CreateAndShowGui"/>
+<fullyQualifiedTypeName name="com.leapmotion.leap.Controller"/>
+<fullyQualifiedTypeName name="DataBase"/>
+<fullyQualifiedTypeName name="EstablishConnection"/>
+<fullyQualifiedTypeName name="ActionListeners"/>
+<fullyQualifiedTypeName name="javax.swing.border.BevelBorder"/>
+<fullyQualifiedTypeName name="javax.swing.UIManager"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
 </qualifiedTypeNameHistroy>
