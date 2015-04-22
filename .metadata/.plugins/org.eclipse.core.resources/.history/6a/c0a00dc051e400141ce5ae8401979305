@@ -125,13 +125,15 @@ public class CreateAndShowGui{
 		frame.setSize(1380, 600);
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		
+		
+		
 		frame.add(leapControlPanelNorth(), BorderLayout.NORTH);
 		frame.add(leapDataPanelWest(), BorderLayout.WEST);
 		frame.add(leapStatusPanelEast(), BorderLayout.EAST);
 		frame.add(leapControlPanelSouth(), BorderLayout.SOUTH);
 		frame.add(dataBasePanelCenter(), BorderLayout.CENTER);
-	
-		//do a look and feel to set up a nice view
+		
+		frame.getContentPane().setBackground(Color.RED);
 		
 		frame.setVisible (true);
 		

@@ -118,7 +118,7 @@ public class DataBase {
 				public void run() {
 					
 					showGUI.jTextFieldCurUserName.setText(currentUsername);
-					showGUI.jTextFieldCurUserPassword.setText(password);
+					//showGUI.jTextFieldCurUserPassword.setText(password);
 					showGUI.jTextFieldCurLoginTime.setText(login);
 					showGUI.jTextFieldCurlogoutTime.setText(logout);
 					showGUI.jTextAreaCurNotes.setText(notes);

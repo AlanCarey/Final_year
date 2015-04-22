@@ -83,7 +83,7 @@ public class CreateAndShowGui{
 	
 	protected JPanel currentUserData;	
 	protected JTextField jTextFieldCurUserName;
-	protected JTextField jTextFieldCurUserPassword;
+	protected JTextFieldjTextFieldCurUserPassword;
 	protected JTextField jTextFieldCurLoginTime;
 	protected JTextField jTextFieldCurlogoutTime;
 	protected JTextField jTextFieldCurPreferredhand;	
@@ -130,9 +130,6 @@ public class CreateAndShowGui{
 		frame.add(leapStatusPanelEast(), BorderLayout.EAST);
 		frame.add(leapControlPanelSouth(), BorderLayout.SOUTH);
 		frame.add(dataBasePanelCenter(), BorderLayout.CENTER);
-	
-		//do a look and feel to set up a nice view
-		
 		frame.setVisible (true);
 		
 	}

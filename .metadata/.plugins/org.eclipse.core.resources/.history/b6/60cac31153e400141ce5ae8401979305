@@ -125,6 +125,8 @@ public class CreateAndShowGui{
 		frame.setSize(1380, 600);
 		frame.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
 		
+		
+		
 		frame.add(leapControlPanelNorth(), BorderLayout.NORTH);
 		frame.add(leapDataPanelWest(), BorderLayout.WEST);
 		frame.add(leapStatusPanelEast(), BorderLayout.EAST);

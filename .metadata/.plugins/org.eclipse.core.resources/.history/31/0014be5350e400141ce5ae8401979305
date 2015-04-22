@@ -99,7 +99,7 @@ public class DataBase {
 	
 	public void currentUserReadData() throws Exception{
 
-		String query = "SELECT Password,LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
+		String query = "SELECT LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
 				"WHERE Name = '" + currentUsername + "'";
 		Statement stmt = connection.createStatement();
 		ResultSet rs = stmt.executeQuery(query);

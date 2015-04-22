@@ -130,9 +130,6 @@ public class CreateAndShowGui{
 		frame.add(leapStatusPanelEast(), BorderLayout.EAST);
 		frame.add(leapControlPanelSouth(), BorderLayout.SOUTH);
 		frame.add(dataBasePanelCenter(), BorderLayout.CENTER);
-	
-		//do a look and feel to set up a nice view
-		
 		frame.setVisible (true);
 		
 	}

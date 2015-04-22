@@ -99,18 +99,18 @@ public class DataBase {
 	
 	public void currentUserReadData() throws Exception{
 
-		String query = "SELECT Password,LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
+		String query = "SELECT LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
 				"WHERE Name = '" + currentUsername + "'";
 		Statement stmt = connection.createStatement();
 		ResultSet rs = stmt.executeQuery(query);
 
 		if(rs.next())
 		{
-			password = rs.getString("Password");
 			login =  rs.getString("LoginTime");
 			logout =  rs.getString("LogoutTime");
 			notes =  rs.getString("Notes");
 			preferred = rs.getString("PreferredHand");
+			String passwordTemp = rs.getString("Password");
 			
 			SwingUtilities.invokeLater(new Runnable() {
 				
@@ -118,7 +118,7 @@ public class DataBase {
 				public void run() {
 					
 					showGUI.jTextFieldCurUserName.setText(currentUsername);
-					showGUI.jTextFieldCurUserPassword.setText(password);
+					//showGUI.jTextFieldCurUserPassword.setText(password);
 					showGUI.jTextFieldCurLoginTime.setText(login);
 					showGUI.jTextFieldCurlogoutTime.setText(logout);
 					showGUI.jTextAreaCurNotes.setText(notes);
