@@ -1,0 +1,30 @@
+import com.leapmotion.leap.*;
+
+public class LeapController {
+
+	static LeapListener listener = null;
+	static Controller controller = null;
+	static EstablishConnection establishCon = null;
+	static DataBase database = null;
+	static ActionListeners actionListener= null;
+	
+	public static void main(String[] args) {
+		
+		final CreateAndShowGui showGUI = new CreateAndShowGui();		
+				
+		showGUI.initButtons();
+			
+		establishCon = new EstablishConnection();
+		
+		database = new DataBase(showGUI);
+		
+		listener = new LeapListener(showGUI, establishCon, database); //Listener class
+		controller = new Controller(); //leap motion lib
+		
+		actionListener = new ActionListeners(showGUI, listener, controller, establishCon, database);
+		
+		actionListener.setUpActionListeners();
+
+	}
+	
+}

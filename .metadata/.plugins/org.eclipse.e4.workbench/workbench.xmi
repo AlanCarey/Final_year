@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="ASCII"?>
 <application:Application xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:advanced="http://www.eclipse.org/ui/2010/UIModel/application/ui/advanced" xmlns:application="http://www.eclipse.org/ui/2010/UIModel/application" xmlns:basic="http://www.eclipse.org/ui/2010/UIModel/application/ui/basic" xmlns:menu="http://www.eclipse.org/ui/2010/UIModel/application/ui/menu" xmi:id="_8oFN8dOxEeSmnOrlIY880g" elementId="org.eclipse.e4.legacy.ide.application" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_8oF1ANOxEeSmnOrlIY880g" bindingContexts="_8oF1AtOxEeSmnOrlIY880g">
+<<<<<<< HEAD
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ActionListeners.java&quot; tooltip=&quot;LeapMotion/src/ActionListeners.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/ActionListeners.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DataBase.java&quot; tooltip=&quot;LeapMotion/src/DataBase.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/DataBase.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.jdt.ui.ClassFileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.ClassFileEditor&quot; name=&quot;MysqlIO.class&quot; tooltip=&quot;com.mysql.jdbc.MysqlIO&quot;>&#xD;&#xA;&lt;persistable org.eclipse.jdt.ui.ClassFileIdentifier=&quot;=LeapMotion/C:\/Users\/Alan\/Documents\/testing\/mysql-connector-java-3.0.10-stable-bin.jar&amp;lt;com.mysql.jdbc(MysqlIO.class&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;EstablishConnection.java&quot; tooltip=&quot;LeapMotion/src/EstablishConnection.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/EstablishConnection.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CreateAndShowGui.java&quot; tooltip=&quot;LeapMotion/src/CreateAndShowGui.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/CreateAndShowGui.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LeapController.java&quot; tooltip=&quot;LeapMotion/src/LeapController.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/LeapController.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LeapListener.java&quot; tooltip=&quot;LeapMotion/src/LeapListener.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/LeapListener.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
   <children xsi:type="basic:TrimmedWindow" xmi:id="_8oF1ANOxEeSmnOrlIY880g" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_9SmKkdOxEeSmnOrlIY880g" label="%trimmedwindow.label.eclipseSDK" x="105" y="0" width="640" height="724">
+=======
+  <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CreateAndShowGui.java&quot; tooltip=&quot;LeapMotion/src/CreateAndShowGui.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/CreateAndShowGui.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;EstablishConnection.java&quot; tooltip=&quot;LeapMotion/src/EstablishConnection.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/EstablishConnection.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ActionListeners.java&quot; tooltip=&quot;LeapMotion/src/ActionListeners.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/ActionListeners.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DataBase.java&quot; tooltip=&quot;LeapMotion/src/DataBase.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/DataBase.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LeapController.java&quot; tooltip=&quot;LeapMotion/src/LeapController.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/LeapController.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LeapListener.java&quot; tooltip=&quot;LeapMotion/src/LeapListener.java&quot;>&#xD;&#xA;&lt;persistable path=&quot;/LeapMotion/src/LeapListener.java&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
+  <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
+  <tags>ModelMigrationProcessor.001</tags>
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_8oF1ANOxEeSmnOrlIY880g" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_9SmKkdOxEeSmnOrlIY880g" label="%trimmedwindow.label.eclipseSDK" x="103" y="-4" width="640" height="724">
+>>>>>>> parent of afa810d... General Update
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="workingSets" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workingSets/>"/>
@@ -116,6 +123,7 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_9nAUadOxEeSmnOrlIY880g" elementId="org.eclipse.ui.console.ConsoleView" ref="_9mwcsdOxEeSmnOrlIY880g"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_9nA7YNOxEeSmnOrlIY880g" elementId="org.eclipse.ui.views.BookmarkView" toBeRendered="false" ref="_9mxDwNOxEeSmnOrlIY880g"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_9nA7YdOxEeSmnOrlIY880g" elementId="org.eclipse.ui.views.ProgressView" toBeRendered="false" ref="_9mxDwdOxEeSmnOrlIY880g"/>
+<<<<<<< HEAD
               </children>
             </children>
           </children>
@@ -222,6 +230,8 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_U89-Y-nkEeSEp4LpuAs7TQ" elementId="org.eclipse.cdt.debug.ui.executablesView" ref="_U8rDUunkEeSEp4LpuAs7TQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_U89-ZOnkEeSEp4LpuAs7TQ" elementId="org.eclipse.jdt.debug.ui.DisplayView" toBeRendered="false" ref="_U800UunkEeSEp4LpuAs7TQ"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_U89-ZenkEeSEp4LpuAs7TQ" elementId="org.eclipse.search.SearchResultView" toBeRendered="false" ref="_U800U-nkEeSEp4LpuAs7TQ"/>
+=======
+>>>>>>> parent of afa810d... General Update
               </children>
             </children>
           </children>
@@ -251,24 +261,39 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_9l79UNOxEeSmnOrlIY880g" elementId="org.eclipse.ui.editorss" selectedElement="_9l79UdOxEeSmnOrlIY880g">
+<<<<<<< HEAD
       <children xsi:type="basic:PartStack" xmi:id="_9l79UdOxEeSmnOrlIY880g" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_m3ws0NTQEeSnSboponMTKg">
+=======
+      <children xsi:type="basic:PartStack" xmi:id="_9l79UdOxEeSmnOrlIY880g" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_FPJxcNOyEeSmnOrlIY880g">
+>>>>>>> parent of afa810d... General Update
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
         <tags>active</tags>
+<<<<<<< HEAD
         <children xsi:type="basic:Part" xmi:id="_E9sOANOyEeSmnOrlIY880g" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="EstablishConnection.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;EstablishConnection.java&quot; partName=&quot;EstablishConnection.java&quot; title=&quot;EstablishConnection.java&quot; tooltip=&quot;LeapMotion/src/EstablishConnection.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/EstablishConnection.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3267&quot; selectionTopPixel=&quot;642&quot;/>&#xD;&#xA;&lt;/editor>"/>
+=======
+        <tags>noFocus</tags>
+        <children xsi:type="basic:Part" xmi:id="_E9sOANOyEeSmnOrlIY880g" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="EstablishConnection.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;EstablishConnection.java&quot; partName=&quot;EstablishConnection.java&quot; title=&quot;EstablishConnection.java&quot; tooltip=&quot;LeapMotion/src/EstablishConnection.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/EstablishConnection.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2661&quot; selectionTopPixel=&quot;1578&quot;/>&#xD;&#xA;&lt;/editor>"/>
+>>>>>>> parent of afa810d... General Update
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_EPdPANOyEeSmnOrlIY880g" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="CreateAndShowGui.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
+<<<<<<< HEAD
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CreateAndShowGui.java&quot; partName=&quot;CreateAndShowGui.java&quot; title=&quot;CreateAndShowGui.java&quot; tooltip=&quot;LeapMotion/src/CreateAndShowGui.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/CreateAndShowGui.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;3722&quot; selectionTopPixel=&quot;1638&quot;/>&#xD;&#xA;&lt;/editor>"/>
+=======
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;CreateAndShowGui.java&quot; partName=&quot;CreateAndShowGui.java&quot; title=&quot;CreateAndShowGui.java&quot; tooltip=&quot;LeapMotion/src/CreateAndShowGui.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/CreateAndShowGui.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;700&quot; selectionTopPixel=&quot;0&quot;/>&#xD;&#xA;&lt;/editor>"/>
+>>>>>>> parent of afa810d... General Update
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_FPJxcNOyEeSmnOrlIY880g" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="LeapController.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
+<<<<<<< HEAD
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LeapController.java&quot; partName=&quot;LeapController.java&quot; title=&quot;LeapController.java&quot; tooltip=&quot;LeapMotion/src/LeapController.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/LeapController.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;638&quot; selectionTopPixel=&quot;56&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
@@ -276,12 +301,27 @@
         </children>
         <children xsi:type="basic:Part" xmi:id="_JeFQANOyEeSmnOrlIY880g" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="LeapListener.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LeapListener.java&quot; partName=&quot;LeapListener.java&quot; title=&quot;LeapListener.java&quot; tooltip=&quot;LeapMotion/src/LeapListener.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/LeapListener.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;7224&quot; selectionTopPixel=&quot;3933&quot;/>&#xD;&#xA;&lt;/editor>"/>
+=======
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LeapController.java&quot; partName=&quot;LeapController.java&quot; title=&quot;LeapController.java&quot; tooltip=&quot;LeapMotion/src/LeapController.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/LeapController.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;707&quot; selectionTopPixel=&quot;258&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <tags>Editor</tags>
+          <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
+          <tags>removeOnHide</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
+        </children>
+        <children xsi:type="basic:Part" xmi:id="_JeFQANOyEeSmnOrlIY880g" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="LeapListener.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;LeapListener.java&quot; partName=&quot;LeapListener.java&quot; title=&quot;LeapListener.java&quot; tooltip=&quot;LeapMotion/src/LeapListener.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/LeapListener.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;7224&quot; selectionTopPixel=&quot;4053&quot;/>&#xD;&#xA;&lt;/editor>"/>
+>>>>>>> parent of afa810d... General Update
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_m3ws0NTQEeSnSboponMTKg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="DataBase.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
+<<<<<<< HEAD
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DataBase.java&quot; partName=&quot;DataBase.java&quot; title=&quot;DataBase.java&quot; tooltip=&quot;LeapMotion/src/DataBase.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/DataBase.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1675&quot; selectionTopPixel=&quot;870&quot;/>&#xD;&#xA;&lt;/editor>"/>
+=======
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;DataBase.java&quot; partName=&quot;DataBase.java&quot; title=&quot;DataBase.java&quot; tooltip=&quot;LeapMotion/src/DataBase.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/DataBase.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1682&quot; selectionTopPixel=&quot;900&quot;/>&#xD;&#xA;&lt;/editor>"/>
+>>>>>>> parent of afa810d... General Update
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -289,7 +329,11 @@
           <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_kvSuEN3cEeSmTI6PgXhbUA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="ActionListeners.java" iconURI="platform:/plugin/org.eclipse.jdt.ui/icons/full/obj16/jcu_obj.gif" closeable="true">
+<<<<<<< HEAD
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ActionListeners.java&quot; partName=&quot;ActionListeners.java&quot; title=&quot;ActionListeners.java&quot; tooltip=&quot;LeapMotion/src/ActionListeners.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/ActionListeners.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;24&quot; selectionOffset=&quot;18406&quot; selectionTopPixel=&quot;8460&quot;/>&#xD;&#xA;&lt;/editor>"/>
+=======
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;org.eclipse.jdt.ui.CompilationUnitEditor&quot; name=&quot;ActionListeners.java&quot; partName=&quot;ActionListeners.java&quot; title=&quot;ActionListeners.java&quot; tooltip=&quot;LeapMotion/src/ActionListeners.java&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/LeapMotion/src/ActionListeners.java&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;1136&quot; selectionTopPixel=&quot;341&quot;/>&#xD;&#xA;&lt;/editor>"/>
+>>>>>>> parent of afa810d... General Update
           <tags>Editor</tags>
           <tags>org.eclipse.jdt.ui.CompilationUnitEditor</tags>
           <tags>removeOnHide</tags>
@@ -319,7 +363,11 @@
       <tags>categoryTag:General</tags>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_9muAcNOxEeSmnOrlIY880g" elementId="org.eclipse.ui.views.ProblemView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Problems" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/problems_view.png" closeable="true">
+<<<<<<< HEAD
       <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;75&quot; org.eclipse.ui.ide.markerType=&quot;75&quot; org.eclipse.ui.ide.pathField=&quot;100&quot; org.eclipse.ui.ide.resourceField=&quot;75&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;250&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
+=======
+      <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;view PRIMARY_SORT_FIELD=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot; categoryGroup=&quot;org.eclipse.ui.ide.severity&quot; markerContentGenerator=&quot;org.eclipse.ui.ide.problemsGenerator&quot; partName=&quot;Problems&quot;>&#xD;&#xA;&lt;expanded>&#xD;&#xA;&lt;category IMemento.internal.id=&quot;Warnings (1 item)&quot;/>&#xD;&#xA;&lt;/expanded>&#xD;&#xA;&lt;columnWidths org.eclipse.ui.ide.locationField=&quot;75&quot; org.eclipse.ui.ide.markerType=&quot;75&quot; org.eclipse.ui.ide.pathField=&quot;100&quot; org.eclipse.ui.ide.resourceField=&quot;75&quot; org.eclipse.ui.ide.severityAndDescriptionField=&quot;250&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.severityAndDescriptionField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.resourceField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.pathField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.locationField&quot;/>&#xD;&#xA;&lt;visible IMemento.internal.id=&quot;org.eclipse.ui.ide.markerType&quot;/>&#xD;&#xA;&lt;/view>"/>
+>>>>>>> parent of afa810d... General Update
       <tags>View</tags>
       <tags>categoryTag:General</tags>
       <menus xmi:id="_93iDoNOxEeSmnOrlIY880g" elementId="org.eclipse.ui.views.ProblemView">
@@ -392,6 +440,7 @@
       <tags>View</tags>
       <tags>categoryTag:WindowBuilder</tags>
     </sharedElements>
+<<<<<<< HEAD
     <sharedElements xsi:type="basic:Part" xmi:id="_U8W6QOnkEeSEp4LpuAs7TQ" elementId="org.eclipse.ui.views.TaskList" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Tasks" iconURI="platform:/plugin/org.eclipse.ui.ide/icons/full/eview16/tasks_tsk.png" closeable="true">
       <tags>View</tags>
       <tags>categoryTag:General</tags>
@@ -480,6 +529,8 @@
       <tags>View</tags>
       <tags>categoryTag:Server</tags>
     </sharedElements>
+=======
+>>>>>>> parent of afa810d... General Update
     <trimBars xmi:id="_9Th-sNOxEeSmnOrlIY880g" elementId="org.eclipse.ui.main.toolbar">
       <children xsi:type="menu:ToolBar" xmi:id="_9WM4MNOxEeSmnOrlIY880g" elementId="group.file" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -487,7 +538,11 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_9WOtYNOxEeSmnOrlIY880g" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_UhkmQOnlEeSSX6t58ZzsiQ" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_8plp1tOxEeSmnOrlIY880g"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_Ff7q196nEeSO79ut9a-Idw" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_8plp1tOxEeSmnOrlIY880g"/>
+>>>>>>> parent of afa810d... General Update
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_9WPUcNOxEeSmnOrlIY880g" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -520,7 +575,11 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_9WQikNOxEeSmnOrlIY880g" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
+<<<<<<< HEAD
         <children xsi:type="menu:HandledToolItem" xmi:id="_UhuXQenlEeSSX6t58ZzsiQ" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_8peVFtOxEeSmnOrlIY880g"/>
+=======
+        <children xsi:type="menu:HandledToolItem" xmi:id="_FgFb2d6nEeSO79ut9a-Idw" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_8peVFtOxEeSmnOrlIY880g"/>
+>>>>>>> parent of afa810d... General Update
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_9WRJoNOxEeSmnOrlIY880g" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -1104,7 +1163,10 @@
   <bindingTables xmi:id="_9mjBUdOxEeSmnOrlIY880g" bindingContext="_9mjBUNOxEeSmnOrlIY880g"/>
   <bindingTables xmi:id="_9mkPcdOxEeSmnOrlIY880g" bindingContext="_9mkPcNOxEeSmnOrlIY880g"/>
   <bindingTables xmi:id="_9mmEodOxEeSmnOrlIY880g" bindingContext="_9mmEoNOxEeSmnOrlIY880g"/>
+<<<<<<< HEAD
   <bindingTables xmi:id="_VmQL0enkEeSEp4LpuAs7TQ" bindingContext="_VmQL0OnkEeSEp4LpuAs7TQ"/>
+=======
+>>>>>>> parent of afa810d... General Update
   <rootContext xmi:id="_8oF1AtOxEeSmnOrlIY880g" elementId="org.eclipse.ui.contexts.dialogAndWindow" contributorURI="platform:/plugin/org.eclipse.platform" name="In Dialogs and Windows" description="Either a dialog or a window is open">
     <children xmi:id="_8oF1A9OxEeSmnOrlIY880g" elementId="org.eclipse.ui.contexts.window" contributorURI="platform:/plugin/org.eclipse.platform" name="In Windows" description="A window is open">
       <children xmi:id="_8oF1BNOxEeSmnOrlIY880g" elementId="org.eclipse.e4.ui.contexts.views" contributorURI="platform:/plugin/org.eclipse.platform" name="%bindingcontext.name.bindingView"/>
@@ -1229,7 +1291,10 @@
   <rootContext xmi:id="_9mjBUNOxEeSmnOrlIY880g" elementId="org.eclipse.wst.ws.explorer.explorer" name="Auto::org.eclipse.wst.ws.explorer.explorer"/>
   <rootContext xmi:id="_9mkPcNOxEeSmnOrlIY880g" elementId="org.eclipse.pde.ui.SearchActionSet" name="Auto::org.eclipse.pde.ui.SearchActionSet"/>
   <rootContext xmi:id="_9mmEoNOxEeSmnOrlIY880g" elementId="org.eclipse.wb.core.ui.actionset" name="Auto::org.eclipse.wb.core.ui.actionset"/>
+<<<<<<< HEAD
   <rootContext xmi:id="_VmQL0OnkEeSEp4LpuAs7TQ" elementId="org.eclipse.jdt.launching.localJavaApplication.internal.org.eclipse.debug.ui.DebugPerspective" name="Auto::org.eclipse.jdt.launching.localJavaApplication.internal.org.eclipse.debug.ui.DebugPerspective"/>
+=======
+>>>>>>> parent of afa810d... General Update
   <descriptors xmi:id="_81_HENOxEeSmnOrlIY880g" elementId="org.eclipse.e4.ui.compatibility.editor" allowMultiple="true" category="org.eclipse.e4.primaryDataStack" closeable="true" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor">
     <tags>Editor</tags>
   </descriptors>

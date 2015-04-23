@@ -41,7 +41,7 @@ public class EstablishConnection {
 		
 	/**
 	 * 
-	 * Attempts to make a connection with desired server/client
+	 * Attempts to make a connection with desired client
 	 * 
 	 * @exception throws UnknownHostExecption, IOException
 	 * 

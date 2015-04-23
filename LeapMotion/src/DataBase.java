@@ -24,6 +24,7 @@ public class DataBase {
 
 	private String currentUsername = "";
 	private String preferred = "";
+	
 	private String login = "";
 	private String logout = "";
 	private String notes = "";
@@ -99,14 +100,13 @@ public class DataBase {
 	
 	public void currentUserReadData() throws Exception{
 
-		String query = "SELECT Password,LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
+		String query = "SELECT LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
 				"WHERE Name = '" + currentUsername + "'";
 		Statement stmt = connection.createStatement();
 		ResultSet rs = stmt.executeQuery(query);
 
 		if(rs.next())
 		{
-			password = rs.getString("Password");
 			login =  rs.getString("LoginTime");
 			logout =  rs.getString("LogoutTime");
 			notes =  rs.getString("Notes");
@@ -118,7 +118,6 @@ public class DataBase {
 				public void run() {
 					
 					showGUI.jTextFieldCurUserName.setText(currentUsername);
-					showGUI.jTextFieldCurUserPassword.setText(password);
 					showGUI.jTextFieldCurLoginTime.setText(login);
 					showGUI.jTextFieldCurlogoutTime.setText(logout);
 					showGUI.jTextAreaCurNotes.setText(notes);
