@@ -286,6 +286,7 @@ EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 !SESSION 2015-04-16 16:04:45.462 -----------------------------------------------
 eclipse.buildId=4.4.0.I20140606-1215
 java.version=1.7.0_67
@@ -766,3 +767,5 @@ org.osgi.framework.BundleException: Cannot transiently start a module whose star
 	at org.eclipse.osgi.container.SystemModule.stop(SystemModule.java:186)
 	at org.eclipse.osgi.internal.framework.EquinoxBundle$SystemBundle$EquinoxSystemModule$1.run(EquinoxBundle.java:160)
 	at java.lang.Thread.run(Unknown Source)
+=======
+>>>>>>> parent of afa810d... General Update
