@@ -57,6 +57,7 @@ public class CreateAndShowGui{
 	protected JButton jButtStartLeapData;
 	protected JButton jButtStopLeapData;
 	protected JButton jButtPlayRecord;
+	protected JButton JButtOpenStream;
 	
 	protected JButton jButtResetArm;
 	protected JButton jButtStopArm;
@@ -331,6 +332,8 @@ public class CreateAndShowGui{
 		jButtPlayRecord = new JButton("Play Record");
 		jButtResetArm = new JButton("Reset Arm");
 		jButtStopArm = new JButton("Stop Arm");
+		JButtOpenStream = new JButton("Get & Open Stream");
+		
 		
 		controlPanel.add(jButtStartRecording);
 		controlPanel.add(jButtStopRecording);
@@ -338,6 +341,7 @@ public class CreateAndShowGui{
 		
 		controlPanel.add(jButtResetArm);
 		controlPanel.add(jButtStopArm);
+		controlPanel.add(JButtOpenStream);
 		
 		return controlPanel;
 	}
@@ -779,6 +783,8 @@ public class CreateAndShowGui{
 		
 		jButtStopArm.setEnabled(false);
 		jButtResetArm.setEnabled(false);
+		JButtOpenStream.setEnabled(false);
+		
 		
 		currentUserData.setVisible(false);
 		newUserData.setVisible(false);

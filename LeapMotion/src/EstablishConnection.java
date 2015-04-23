@@ -17,6 +17,8 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.net.UnknownHostException;
 
+import javax.swing.JOptionPane;
+
 public class EstablishConnection {
 	
 	private boolean inService = false;
@@ -25,7 +27,8 @@ public class EstablishConnection {
 	private PrintWriter pw;
 	private OutputStream outStream;
 	private BufferedReader reader;
-
+	private String IP = "";
+	
 	/**
 	 * 
 	 * Default Constructor
@@ -49,7 +52,8 @@ public class EstablishConnection {
 		
 		try {
 			
-			socket = new Socket("192.168.1.122", 4014);
+			IP= JOptionPane.showInputDialog("Enter IP Address: ");
+			socket = new Socket(IP, 4014);
 			outStream = socket.getOutputStream();
 			reader = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			pw = new PrintWriter(outStream);
@@ -175,5 +179,15 @@ public class EstablishConnection {
 	
 	public void setInRecordService(boolean inRecordService) {
 		this.inRecordService = inRecordService;
-	}	
+	}
+	
+	/**
+	 * 
+	 * @return IP The IP address of the Pi
+	 */
+	
+	public String getIP() {
+		return IP;
+	}
+	
 }
