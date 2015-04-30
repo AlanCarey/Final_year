@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.net.URL;
 
+import javax.swing.JOptionPane;
+
 import com.leapmotion.leap.Controller;
 
 public class ActionListeners {
@@ -354,8 +356,13 @@ public class ActionListeners {
 			
 				if(listener.isSystemStatsFlag() == true) {
 					
-					showGUI.printStatus("Playing ...");
-					
+					if(listener.recordedData.size() > 0)
+					{
+						showGUI.printStatus("Playing ...");
+					}
+					else {
+						showGUI.printStatus("No Recoding set.");
+					}
 				}
 				listener.sendRecordedData();
 				establishCon.setInService(true);
@@ -436,14 +443,19 @@ public class ActionListeners {
 						System.out.println("Here");
 						showGUI.currentUserData.setVisible(true);
 						showGUI.login.setVisible(false);
+						showGUI.createNewUser.setVisible(false);
+						showGUI.jTextFieldCreateUserName.setText("");
+						showGUI.jPasswordFieldCreatePassword.setText("");
 						showGUI.jButtCurUpdate.setEnabled(true);
-
+						
 						database.updateLoginTime();
 						database.currentUserReadData();
 						
 					}
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
+					
+					JOptionPane.showMessageDialog(null, e1.getMessage());
 					e1.printStackTrace();
 				}
 				
@@ -470,6 +482,8 @@ public class ActionListeners {
 					
 					showGUI.jTextFieldUserName.setText("");
 					showGUI.jPasswordFieldPassword.setText("");
+					
+					showGUI.jTextAreaNewNotes.setText("");
 					
 					//System.out.println("User = " + database.getCurrentUsername());
 					//System.out.println("P Hand = " + database.getPreferred());
@@ -590,6 +604,7 @@ public class ActionListeners {
 					showGUI.createNewUser.setVisible(false);
 				} catch (Exception e1) {
 					e1.printStackTrace();
+					JOptionPane.showMessageDialog(null, e1.getMessage());
 				}
 				
 			}

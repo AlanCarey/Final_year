@@ -7,8 +7,11 @@
  */
 
 import java.awt.Color;
+import java.awt.Desktop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
+
 import com.leapmotion.leap.Controller;
 
 public class ActionListeners {
@@ -112,7 +115,8 @@ public class ActionListeners {
 				showGUI.jButtResetArm.setEnabled(false);
 				showGUI.jButtStopArm.setEnabled(false);
 				showGUI.jButtActivate.setEnabled(true);
-			
+				showGUI.JButtOpenStream.setEnabled(false);
+				
 				if(listener.isSystemStatsFlag() == true){
 					showGUI.printStatus("Leap Deactivated");				
 				}
@@ -193,6 +197,7 @@ public class ActionListeners {
 					showGUI.jButtPlayRecord.setEnabled(false);
 					showGUI.jButtResetArm.setEnabled(false);
 					showGUI.jButtStopArm.setEnabled(false);
+					showGUI.JButtOpenStream.setEnabled(false);
 					
 					showGUI.lblLED2.setForeground(Color.RED);
 					
@@ -423,19 +428,25 @@ public class ActionListeners {
 				
 				try {
 					
+					System.out.println("Before connect");
 					database.connect();
+					System.out.println("After");
 					
 					if(database.login() == true) {
+						System.out.println("Here");
 						showGUI.currentUserData.setVisible(true);
 						showGUI.login.setVisible(false);
+						showGUI.createNewUser.setVisible(false);
+						showGUI.jTextFieldCreateUserName.setText("");
 						showGUI.jButtCurUpdate.setEnabled(true);
-
+						
 						database.updateLoginTime();
 						database.currentUserReadData();
 						
 					}
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
+					e1.printStackTrace();
 				}
 				
 			}
@@ -581,6 +592,26 @@ public class ActionListeners {
 					showGUI.createNewUser.setVisible(false);
 				} catch (Exception e1) {
 					e1.printStackTrace();
+				}
+				
+			}
+		});
+		
+		/**********************************************************************************************************************
+		 * 
+		 * JButtOpenStream ActionListener
+		 * 
+		 **********************************************************************************************************************/
+		
+		showGUI.JButtOpenStream.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+				    Desktop.getDesktop().browse(new URL("http://" + establishCon.getIP()).toURI());
+				} catch (Exception e1) {
+					
 				}
 				
 			}

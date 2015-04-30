@@ -6,6 +6,9 @@
  * @since 23-03-2015
  */
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -28,6 +31,7 @@ public class DataBase {
 	private String login = "";
 	private String logout = "";
 	private String notes = "";
+	private String ttpassword = "";
 	
 	private int result;
 
@@ -75,7 +79,7 @@ public class DataBase {
 		else if(!newUser.equals("") && !newPassword.equals("")) {
 			
 			sqlInsert = connection.prepareStatement("INSERT INTO `robotarmlogin`.`loginusers` (`Name`, `Password`, `LoginTIme`, `LogoutTime`, `Preferredhand`, `Notes`)"
-					+ " VALUES ('"+newUser+"', '"+newPassword+"', '', '', '', '')");
+					+ " VALUES ('"+newUser+"', '"+md5Hash(newPassword)+"', '', '', '', '')");
 			
 			connection.createStatement();
 
@@ -100,13 +104,14 @@ public class DataBase {
 	
 	public void currentUserReadData() throws Exception{
 
-		String query = "SELECT LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
+		String query = "SELECT Password,LoginTime,LogoutTime,PreferredHand,Notes FROM loginusers " +
 				"WHERE Name = '" + currentUsername + "'";
 		Statement stmt = connection.createStatement();
 		ResultSet rs = stmt.executeQuery(query);
 
 		if(rs.next())
 		{
+			ttpassword = rs.getString("Password");
 			login =  rs.getString("LoginTime");
 			logout =  rs.getString("LogoutTime");
 			notes =  rs.getString("Notes");
@@ -122,7 +127,7 @@ public class DataBase {
 					showGUI.jTextFieldCurlogoutTime.setText(logout);
 					showGUI.jTextAreaCurNotes.setText(notes);
 					showGUI.jTextFieldCurPreferredhand.setText(preferred);
-					
+					showGUI.jTextFieldCurPassword.setText(ttpassword);
 				}
 			});
 		}
@@ -277,9 +282,9 @@ public class DataBase {
 				//String dbUsername = rs.getString("Name");
 				String dbPassword = rs.getString("Password");
 				
-				//System.out.println(password + dbPassword);
+				System.out.println(password + dbPassword);
 				
-				if(password.equals(dbPassword)) {
+				if(md5Hash(password).equals(dbPassword)) {
 						
 					showGUI.printStatus("Current User: " + currentUsername);
 						
@@ -322,6 +327,27 @@ public class DataBase {
 	
 	}
 	
+	
+    //Takes a string, and converts it to md5 hashed string.
+    public String md5Hash(String message) {
+        
+    	String salt="DGE$5SGr@3VsHYUMas2323E4d57vfBfFSTRU@!DSH(*%FDSdfg13sgfsg";
+    	String md5 = "";
+        
+    	if(null == message) 
+            return null;
+         
+        message = message+salt;
+        try {
+            MessageDigest digest = MessageDigest.getInstance("MD5");
+            digest.update(message.getBytes(), 0, message.length());
+            md5 = new BigInteger(1, digest.digest()).toString(16);
+  
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
+        return md5;
+    }
 	
 	/**
 	 * Gets the current user

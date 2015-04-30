@@ -428,19 +428,26 @@ public class ActionListeners {
 				
 				try {
 					
+					System.out.println("Before connect");
 					database.connect();
+					System.out.println("After");
 					
 					if(database.login() == true) {
+						System.out.println("Here");
 						showGUI.currentUserData.setVisible(true);
 						showGUI.login.setVisible(false);
+						showGUI.createNewUser.setVisible(false);
+						showGUI.jTextFieldCreateUserName.setText("");
+						showGUI.jPasswordFieldCreatePassword.setText("");
 						showGUI.jButtCurUpdate.setEnabled(true);
-
+						
 						database.updateLoginTime();
 						database.currentUserReadData();
 						
 					}
 				} catch (Exception e1) {
 					System.out.println(e1.getMessage());
+					e1.printStackTrace();
 				}
 				
 			}
@@ -466,6 +473,8 @@ public class ActionListeners {
 					
 					showGUI.jTextFieldUserName.setText("");
 					showGUI.jPasswordFieldPassword.setText("");
+					
+					showGUI.jTextAreaNewNotes.setText("");
 					
 					//System.out.println("User = " + database.getCurrentUsername());
 					//System.out.println("P Hand = " + database.getPreferred());
@@ -603,7 +612,7 @@ public class ActionListeners {
 			public void actionPerformed(ActionEvent e) {
 				
 				try {
-				    Desktop.getDesktop().browse(new URL("http://192.168.1.122").toURI());
+				    Desktop.getDesktop().browse(new URL("http://" + establishCon.getIP()).toURI());
 				} catch (Exception e1) {
 					
 				}

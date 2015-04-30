@@ -13,16 +13,16 @@
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="false" key="wholeword"/>
-		<item value="" key="selection"/>
+		<item value="Option" key="selection"/>
 		<list key="findhistory">
+			<item value="option"/>
+			<item value="login"/>
+			<item value="playing"/>
 			<item value="yes"/>
 			<item value="south"/>
 			<item value="resetArm"/>
 			<item value="stoparm"/>
 			<item value="jPassword"/>
-			<item value="system.out"/>
-			<item value="setText"/>
-			<item value="printStatus"/>
 		</list>
 		<list key="replacehistory">
 			<item value="New"/>

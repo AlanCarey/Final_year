@@ -83,7 +83,8 @@ public class CreateAndShowGui{
 	 */
 	
 	protected JPanel currentUserData;	
-	protected JTextField jTextFieldCurUserName = new JTextField(20);
+	protected JTextField jTextFieldCurUserName;
+	protected JTextField jTextFieldCurPassword; 
 	protected JTextField jTextFieldCurLoginTime;
 	protected JTextField jTextFieldCurlogoutTime;
 	protected JTextField jTextFieldCurPreferredhand;	
@@ -174,6 +175,9 @@ public class CreateAndShowGui{
 		JLabel lblCurUserName = new JLabel("Username");
 		jTextFieldCurUserName = new JTextField(20);
 		
+		JLabel lblCurPassword = new JLabel("Password");
+		jTextFieldCurPassword = new JTextField(20);
+		
 		JLabel lblCurLoginTime = new JLabel("Login Time");
 		jTextFieldCurLoginTime = new JTextField(20);
 		
@@ -196,6 +200,9 @@ public class CreateAndShowGui{
 		
 		currentUserData.add(lblCurUserName);
 		currentUserData.add(jTextFieldCurUserName, "wrap");
+		
+		currentUserData.add(lblCurPassword);
+		currentUserData.add(jTextFieldCurPassword, "wrap");
 		
 		currentUserData.add(lblCurLoginTime);
 		currentUserData.add(jTextFieldCurLoginTime, "wrap");

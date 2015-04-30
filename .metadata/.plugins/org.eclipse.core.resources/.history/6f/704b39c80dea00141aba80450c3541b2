@@ -84,7 +84,7 @@ public class CreateAndShowGui{
 	
 	protected JPanel currentUserData;	
 	protected JTextField jTextFieldCurUserName;
-	protected JTextField jTextFieldCurUserPassword;
+	protected JTextField jTextFieldCurPassword; 
 	protected JTextField jTextFieldCurLoginTime;
 	protected JTextField jTextFieldCurlogoutTime;
 	protected JTextField jTextFieldCurPreferredhand;	
@@ -131,9 +131,6 @@ public class CreateAndShowGui{
 		frame.add(leapStatusPanelEast(), BorderLayout.EAST);
 		frame.add(leapControlPanelSouth(), BorderLayout.SOUTH);
 		frame.add(dataBasePanelCenter(), BorderLayout.CENTER);
-	
-		//do a look and feel to set up a nice view
-		
 		frame.setVisible (true);
 		
 	}
@@ -178,8 +175,8 @@ public class CreateAndShowGui{
 		JLabel lblCurUserName = new JLabel("Username");
 		jTextFieldCurUserName = new JTextField(20);
 		
-		JLabel lblCurUserPassword = new JLabel("Password");
-		jTextFieldCurUserPassword = new JTextField(20);
+		JLabel lblCurPassword = new JLabel("Password");
+		jTextFieldCurPassword = new JTextField(20);
 		
 		JLabel lblCurLoginTime = new JLabel("Login Time");
 		jTextFieldCurLoginTime = new JTextField(20);
@@ -203,9 +200,6 @@ public class CreateAndShowGui{
 		
 		currentUserData.add(lblCurUserName);
 		currentUserData.add(jTextFieldCurUserName, "wrap");
-		
-		currentUserData.add(lblCurUserPassword);
-		currentUserData.add(jTextFieldCurUserPassword, "wrap");
 		
 		currentUserData.add(lblCurLoginTime);
 		currentUserData.add(jTextFieldCurLoginTime, "wrap");
@@ -332,7 +326,7 @@ public class CreateAndShowGui{
 		jButtPlayRecord = new JButton("Play Record");
 		jButtResetArm = new JButton("Reset Arm");
 		jButtStopArm = new JButton("Stop Arm");
-		JButtOpenStream = new JButton("Open Stream");
+		JButtOpenStream = new JButton("Get & Open Stream");
 		
 		
 		controlPanel.add(jButtStartRecording);
@@ -341,7 +335,7 @@ public class CreateAndShowGui{
 		
 		controlPanel.add(jButtResetArm);
 		controlPanel.add(jButtStopArm);
-		controlPanel.add(jButt)
+		controlPanel.add(JButtOpenStream);
 		
 		return controlPanel;
 	}
@@ -783,6 +777,8 @@ public class CreateAndShowGui{
 		
 		jButtStopArm.setEnabled(false);
 		jButtResetArm.setEnabled(false);
+		JButtOpenStream.setEnabled(false);
+		
 		
 		currentUserData.setVisible(false);
 		newUserData.setVisible(false);
